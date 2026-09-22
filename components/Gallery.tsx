@@ -1,6 +1,12 @@
 import Container from "./Container";
 
-const TILE_HEIGHTS = ["h-40", "h-56", "h-48", "h-64", "h-40", "h-56", "h-48", "h-40"];
+const PHOTOS = [
+  { src: "/assets/gallery1.jpeg", span: "md:col-span-2 md:row-span-2" },
+  { src: "/assets/gallery2.jpeg", span: "md:col-span-2 md:row-span-1" },
+  { src: "/assets/gallery3.jpeg", span: "md:col-span-1 md:row-span-1" },
+  { src: "/assets/gallery4.jpeg", span: "md:col-span-1 md:row-span-1" },
+  { src: "/assets/gallery5.png", span: "md:col-span-4 md:row-span-1" },
+];
 
 export default function Gallery() {
   return (
@@ -23,13 +29,17 @@ export default function Gallery() {
           </a>
         </div>
 
-        <div className="mt-10 columns-2 gap-4 sm:columns-3 md:columns-4">
-          {TILE_HEIGHTS.map((h, i) => (
+        <div className="mt-10 grid grid-cols-2 auto-rows-40 gap-4 md:grid-cols-4 md:auto-rows-50">
+          {PHOTOS.map((photo, i) => (
             <div
               key={i}
-              className={`mb-4 ${h} w-full break-inside-avoid rounded-xl border border-gold-200 bg-gradient-to-br from-gold-100 to-saffron-100 flex items-center justify-center`}
+              className={`group overflow-hidden rounded-xl border border-gold-200 ${photo.span}`}
             >
-              <span className="font-body text-xs text-gold-600">Photo {i + 1}</span>
+              <img
+                src={photo.src}
+                alt={`Gallery photo ${i + 1}`}
+                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+              />
             </div>
           ))}
         </div>
