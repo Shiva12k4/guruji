@@ -1,7 +1,9 @@
+import Container from "./Container";
+
 export default function Footer() {
   return (
     <footer className="bg-saffron-900 text-saffron-100">
-      <div className="mx-auto grid max-w-6xl grid-cols-1 gap-10 px-6 py-14 sm:grid-cols-3">
+      <Container className="grid grid-cols-1 gap-10 py-14 sm:grid-cols-3">
         <div>
           <h3 className="font-heading text-2xl text-gold-200">Guruji Ashram</h3>
           <p className="mt-3 font-body text-sm text-saffron-200/80">
@@ -35,7 +37,7 @@ export default function Footer() {
             <li>Phone: +91 00000 00000</li>
           </ul>
         </div>
-      </div>
+      </Container>
 
       <div className="border-t border-saffron-700/60 py-6 text-center font-body text-xs text-saffron-300/70">
         &copy; {new Date().getFullYear()} Guruji Ashram. All rights reserved.
