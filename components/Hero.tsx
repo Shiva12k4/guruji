@@ -36,7 +36,7 @@ export default function Hero() {
           gsap.set(gurujiRef.current, { opacity: 0, scale: 0.9, y: 40 });
           gsap.set(glowRef.current, { opacity: 0 });
           gsap.set(overlayRef.current, { opacity: 1 });
-          gsap.set(rayBeamRef.current, { opacity: 0, scaleY: 0, transformOrigin: "50% 0%" });
+          gsap.set(rayBeamRef.current, { opacity: 0, scaleY: 0, rotation: -36, transformOrigin: "50% 0%" });
           gsap.set(rayDotRef.current, { opacity: 0, scale: 0.4 });
 
           const tl = gsap.timeline({
@@ -190,7 +190,7 @@ export default function Hero() {
         ref={rayBeamRef}
         src="/assets/beam.png"
         alt=""
-        className="absolute left-[46%] top-[46%] h-[13%] w-auto -translate-x-1/2 mix-blend-screen"
+        className="absolute left-[44%] top-[46%] h-[13%] w-auto -translate-x-1/2 mix-blend-screen"
         aria-hidden="true"
       />
 
