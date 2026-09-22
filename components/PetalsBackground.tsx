@@ -11,25 +11,26 @@ type PetalConfig = {
   swayDuration: number;
   swayDistance: number;
   rotate: number;
-  opacity: number;
+  peakOpacity: number;
+  hue: number;
+  mobileHidden: boolean;
 };
 
-const PETAL_COUNT = 16;
+const PETAL_COUNT = 20;
 
 function buildPetals(count: number): PetalConfig[] {
-  return Array.from({ length: count }, (_, i) => {
-    const seed = i / count;
-    return {
-      left: `${(seed * 92 + (i % 3) * 2).toFixed(1)}%`,
-      size: 14 + ((i * 7) % 20),
-      duration: 14 + ((i * 5) % 12),
-      delay: (i * 0.9) % 10,
-      swayDuration: 3 + ((i * 3) % 4),
-      swayDistance: 20 + ((i * 11) % 40),
-      rotate: 180 + ((i * 47) % 180),
-      opacity: 0.5 + ((i % 4) * 0.1),
-    };
-  });
+  return Array.from({ length: count }, (_, i) => ({
+    left: `${((i * 61 + 7) % 92) + 2}%`,
+    size: 16 + ((i * 13) % 26),
+    duration: 15 + ((i * 7) % 16),
+    delay: (i * 1.7) % 12,
+    swayDuration: 3.5 + ((i * 5) % 5),
+    swayDistance: 22 + ((i * 17) % 48),
+    rotate: 140 + ((i * 53) % 260),
+    peakOpacity: 0.45 + ((i % 5) * 0.08),
+    hue: -25 + ((i * 29) % 65),
+    mobileHidden: i % 2 === 1,
+  }));
 }
 
 const PETALS = buildPetals(PETAL_COUNT);
@@ -48,21 +49,19 @@ export default function PetalsBackground({ className = "" }: { className?: strin
         const cfg = PETALS[i];
         if (!cfg) return;
 
-        gsap.set(petal, { top: "-10%", opacity: cfg.opacity });
+        gsap.set(petal, { top: "-10%", opacity: 0, rotation: 0 });
 
-        gsap.to(petal, {
-          top: "110%",
-          rotation: cfg.rotate,
-          duration: cfg.duration,
-          delay: cfg.delay,
-          ease: "none",
-          repeat: -1,
-        });
+        const fallTl = gsap.timeline({ repeat: -1, delay: cfg.delay });
+        fallTl
+          .to(petal, { opacity: cfg.peakOpacity, duration: cfg.duration * 0.1, ease: "sine.out" }, 0)
+          .to(petal, { top: "108%", duration: cfg.duration, ease: "none" }, 0)
+          .to(petal, { rotation: cfg.rotate, duration: cfg.duration, ease: "sine.inOut" }, 0)
+          .to(petal, { opacity: 0, duration: cfg.duration * 0.15, ease: "sine.in" }, cfg.duration * 0.82);
 
         gsap.to(petal, {
           x: `+=${cfg.swayDistance}`,
           duration: cfg.swayDuration,
-          delay: cfg.delay * 0.5,
+          delay: cfg.delay * 0.4,
           ease: "sine.inOut",
           repeat: -1,
           yoyo: true,
@@ -85,11 +84,13 @@ export default function PetalsBackground({ className = "" }: { className?: strin
           data-petal
           src="/assets/petals-sheet.png"
           alt=""
+          className={cfg.mobileHidden ? "hidden sm:block" : ""}
           style={{
             position: "absolute",
             left: cfg.left,
             width: cfg.size,
             height: cfg.size,
+            filter: `hue-rotate(${cfg.hue}deg) drop-shadow(0 2px 4px rgba(120,50,10,0.25))`,
           }}
         />
       ))}
