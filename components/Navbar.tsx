@@ -4,10 +4,10 @@ import { useState } from "react";
 
 const LINKS = [
   { label: "Home", href: "#home" },
-  { label: "About Us", href: "#" },
-  { label: "Yatra", href: "#" },
+  { label: "About Us", href: "#guru-parichay" },
+  { label: "Maha Yagya", href: "#" },
   { label: "Videos", href: "#videos" },
-  { label: "Donation", href: "#" },
+  { label: "Donation", href: "#donate" },
 ];
 
 export default function Navbar() {

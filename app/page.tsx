@@ -1,6 +1,10 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import VideoSection from "@/components/VideoSection";
+import GuruParichay from "@/components/GuruParichay";
+import VideoSlider from "@/components/VideoSlider";
+import UpcomingEvents from "@/components/UpcomingEvents";
+import Gallery from "@/components/Gallery";
+import DonationCTA from "@/components/DonationCTA";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -8,7 +12,11 @@ export default function Home() {
     <main>
       <Navbar />
       <Hero />
-      <VideoSection />
+      <GuruParichay />
+      <VideoSlider />
+      <UpcomingEvents />
+      <Gallery />
+      <DonationCTA />
       <Footer />
     </main>
   );

@@ -16,16 +16,19 @@ export default function Footer() {
           <h4 className="font-heading text-lg text-gold-200">Quick Links</h4>
           <ul className="mt-3 space-y-2 font-body text-sm text-saffron-200/80">
             <li>
-              <a href="#" className="hover:text-gold-100">About Us</a>
+              <a href="#guru-parichay" className="hover:text-gold-100">About Us</a>
             </li>
             <li>
-              <a href="#" className="hover:text-gold-100">Yatra Schedule</a>
+              <a href="#" className="hover:text-gold-100">Maha Yagya</a>
             </li>
             <li>
-              <a href="#" className="hover:text-gold-100">Donation</a>
+              <a href="#donate" className="hover:text-gold-100">Donation</a>
             </li>
             <li>
               <a href="#videos" className="hover:text-gold-100">Videos</a>
+            </li>
+            <li>
+              <a href="#gallery" className="hover:text-gold-100">Gallery</a>
             </li>
           </ul>
         </div>
