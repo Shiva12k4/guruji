@@ -39,7 +39,7 @@ export default function VideoSlider() {
               key={i}
               type="button"
               onClick={() => setActiveVideo(video.src)}
-              className="w-[60%] flex-none snap-start text-left sm:w-[32%] lg:w-[22%]"
+              className="w-[60%] flex-none snap-start text-left sm:w-[32%] lg:w-[25%]"
             >
               <div className="relative aspect-9/16 overflow-hidden rounded-xl border border-gold-200 bg-black">
                 <video
