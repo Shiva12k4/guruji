@@ -37,6 +37,7 @@ export default function GuruParichay() {
           scrollTrigger: {
             trigger: el,
             start: "top 85%",
+            toggleActions: "play reverse play reverse",
           },
         });
       });
@@ -52,6 +53,15 @@ export default function GuruParichay() {
       className="w-full bg-white py-14 md:py-20"
     >
       <Container className="space-y-16 md:space-y-24">
+        <div className="text-center">
+          <h2 className="font-heading text-3xl md:text-5xl font-semibold text-saffron-800">
+            Sant Parichay
+          </h2>
+          <p className="mt-2 font-body text-saffron-700/80">
+            Hamare pujya santon ka jeevan parichay
+          </p>
+        </div>
+
         <div className="grid grid-cols-1 items-center gap-10 md:grid-cols-2 md:gap-16">
           <div ref={devarahaImgRef} className="relative mx-auto w-full max-w-sm">
             <div className="absolute -left-4 -top-4 h-full w-full border-4 border-saffron-600" aria-hidden="true" />
@@ -75,6 +85,13 @@ export default function GuruParichay() {
               mortal body on 19th June 1990 in Vrindavan. His Samadhi Sthal
               in Vrindavan remains a revered site for devotees to this day.
             </p>
+
+            <button
+              type="button"
+              className="mt-6 rounded-full bg-saffron-600 px-8 py-3 font-body text-sm font-medium text-white transition-colors hover:bg-saffron-700"
+            >
+              Read More
+            </button>
           </div>
         </div>
 
