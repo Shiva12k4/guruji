@@ -13,6 +13,8 @@ export default function Hero() {
   const hanumanRef = useRef<HTMLImageElement>(null);
   const gurujiRef = useRef<HTMLImageElement>(null);
   const glowRef = useRef<HTMLDivElement>(null);
+  const rayPathRef = useRef<SVGPathElement>(null);
+  const rayDotRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -30,10 +32,15 @@ export default function Hero() {
           const { isMobile } = context.conditions as { isMobile: boolean };
           const pinDistance = isMobile ? "+=150%" : "+=250%";
 
+          const rayPath = rayPathRef.current;
+          const rayLength = rayPath ? rayPath.getTotalLength() : 0;
+
           gsap.set(hanumanRef.current, { filter: "brightness(0.15) saturate(0.3)", opacity: 0.45 });
           gsap.set(gurujiRef.current, { opacity: 0, scale: 0.9, y: 40 });
           gsap.set(glowRef.current, { opacity: 0 });
           gsap.set(overlayRef.current, { opacity: 1 });
+          gsap.set(rayPath, { strokeDasharray: rayLength, strokeDashoffset: rayLength, opacity: 0 });
+          gsap.set(rayDotRef.current, { opacity: 0, scale: 0.4 });
 
           const tl = gsap.timeline({
             scrollTrigger: {
@@ -46,10 +53,20 @@ export default function Hero() {
             },
           });
 
-          const pulseTween = gsap.to(glowRef.current, {
+          const glowPulseTween = gsap.to(glowRef.current, {
             scale: 1.15,
             opacity: 0.7,
             duration: 2.2,
+            ease: "sine.inOut",
+            repeat: -1,
+            yoyo: true,
+            paused: true,
+          });
+
+          const dotPulseTween = gsap.to(rayDotRef.current, {
+            scale: 1.3,
+            opacity: 0.6,
+            duration: 1.4,
             ease: "sine.inOut",
             repeat: -1,
             yoyo: true,
@@ -69,7 +86,30 @@ export default function Hero() {
               },
               "hanuman-brighten"
             )
-            .addLabel("guruji-reveal", "hanuman-brighten+=1.1")
+            .addLabel("ray-draw", "hanuman-brighten+=1.4")
+            .to(
+              rayPath,
+              { opacity: 1, duration: 0.15, ease: "none" },
+              "ray-draw"
+            )
+            .to(
+              rayPath,
+              { strokeDashoffset: 0, duration: 0.9, ease: "none" },
+              "ray-draw"
+            )
+            .addLabel("guruji-reveal", "ray-draw+=0.6")
+            .to(
+              rayDotRef.current,
+              {
+                opacity: 1,
+                scale: 1,
+                duration: 0.3,
+                ease: "power1.out",
+                onComplete: () => dotPulseTween.play(),
+                onReverseComplete: () => dotPulseTween.pause(),
+              },
+              "ray-draw+=0.75"
+            )
             .to(
               gurujiRef.current,
               {
@@ -87,10 +127,15 @@ export default function Hero() {
                 opacity: 1,
                 duration: 1,
                 ease: "power2.out",
-                onComplete: () => pulseTween.play(),
-                onReverseComplete: () => pulseTween.pause(),
+                onComplete: () => glowPulseTween.play(),
+                onReverseComplete: () => glowPulseTween.pause(),
               },
               "guruji-reveal"
+            )
+            .to(
+              rayPath,
+              { opacity: 0, duration: 0.4, ease: "none" },
+              "guruji-reveal+=0.5"
             );
         }
       );
@@ -146,6 +191,49 @@ export default function Hero() {
         src="/assets/guruji-cutout.png"
         alt="Guruji"
         className="absolute left-1/2 bottom-0 h-[46%] -translate-x-1/2 object-contain"
+      />
+
+      {/* Blessing beam: hand (~42,52) to Guruji's head (~50,58), in percent-of-section units */}
+      <svg
+        className="absolute inset-0 h-full w-full"
+        viewBox="0 0 100 100"
+        preserveAspectRatio="none"
+        aria-hidden="true"
+      >
+        <defs>
+          <linearGradient id="ray-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#fff7d6" />
+            <stop offset="100%" stopColor="#ffb347" />
+          </linearGradient>
+          <filter id="ray-glow" x="-100%" y="-100%" width="300%" height="300%">
+            <feGaussianBlur stdDeviation="1" result="blur" />
+            <feMerge>
+              <feMergeNode in="blur" />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
+        </defs>
+        <path
+          ref={rayPathRef}
+          d="M42,52 Q46,45 50,58"
+          fill="none"
+          stroke="url(#ray-gradient)"
+          strokeWidth="3"
+          strokeLinecap="round"
+          vectorEffect="non-scaling-stroke"
+          filter="url(#ray-glow)"
+        />
+      </svg>
+
+      <div
+        ref={rayDotRef}
+        className="absolute left-[50%] top-[58%] h-[3.5%] w-[3.5%] -translate-x-1/2 -translate-y-1/2 rounded-full"
+        style={{
+          background:
+            "radial-gradient(circle, rgba(255,247,214,0.95) 0%, rgba(255,179,71,0.7) 55%, rgba(255,179,71,0) 75%)",
+          boxShadow: "0 0 20px 6px rgba(255,200,110,0.6)",
+        }}
+        aria-hidden="true"
       />
 
       <PetalsBackground />
