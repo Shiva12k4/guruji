@@ -1,26 +1,67 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #fffaf3;
+  --foreground: #2a1a0f;
+
+  --color-saffron-50: #fff7ed;
+  --color-saffron-100: #ffedd3;
+  --color-saffron-200: #ffd6a5;
+  --color-saffron-300: #ffb763;
+  --color-saffron-400: #ff9330;
+  --color-saffron-500: #f97316;
+  --color-saffron-600: #ea560c;
+  --color-saffron-700: #c2400c;
+  --color-saffron-800: #9a3312;
+  --color-saffron-900: #7c2d12;
+
+  --color-gold-50: #fdf9ed;
+  --color-gold-100: #f9edc4;
+  --color-gold-200: #f3da8c;
+  --color-gold-300: #ecc258;
+  --color-gold-400: #e5aa34;
+  --color-gold-500: #d18c1f;
+  --color-gold-600: #b06c18;
+  --color-gold-700: #8c5217;
+  --color-gold-800: #744319;
+  --color-gold-900: #63391a;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  --font-heading: var(--font-heading);
+  --font-body: var(--font-body);
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-saffron-50: var(--color-saffron-50);
+  --color-saffron-100: var(--color-saffron-100);
+  --color-saffron-200: var(--color-saffron-200);
+  --color-saffron-300: var(--color-saffron-300);
+  --color-saffron-400: var(--color-saffron-400);
+  --color-saffron-500: var(--color-saffron-500);
+  --color-saffron-600: var(--color-saffron-600);
+  --color-saffron-700: var(--color-saffron-700);
+  --color-saffron-800: var(--color-saffron-800);
+  --color-saffron-900: var(--color-saffron-900);
+
+  --color-gold-50: var(--color-gold-50);
+  --color-gold-100: var(--color-gold-100);
+  --color-gold-200: var(--color-gold-200);
+  --color-gold-300: var(--color-gold-300);
+  --color-gold-400: var(--color-gold-400);
+  --color-gold-500: var(--color-gold-500);
+  --color-gold-600: var(--color-gold-600);
+  --color-gold-700: var(--color-gold-700);
+  --color-gold-800: var(--color-gold-800);
+  --color-gold-900: var(--color-gold-900);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-body), Arial, Helvetica, sans-serif;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-heading), Georgia, serif;
 }
