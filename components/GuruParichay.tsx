@@ -9,7 +9,7 @@ export default function GuruParichay() {
           <img
             src="/assets/guruji-cutout.png"
             alt="Guruji"
-            className="relative aspect-4/5 w-full object-cover"
+            className="relative aspect-4/5 w-full object-cover object-top"
           />
         </div>
 
