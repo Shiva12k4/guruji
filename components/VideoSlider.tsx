@@ -32,37 +32,37 @@ export default function VideoSlider() {
             View All Videos &rarr;
           </a>
         </div>
-      </Container>
 
-      <div className="no-scrollbar mt-10 flex snap-x snap-mandatory gap-5 overflow-x-auto px-6 pb-4">
-        {VIDEOS.map((video, i) => (
-          <button
-            key={i}
-            type="button"
-            onClick={() => setActiveVideo(video.src)}
-            className="w-[60%] flex-none snap-start text-left sm:w-[32%] lg:w-[22%]"
-          >
-            <div className="relative aspect-9/16 overflow-hidden rounded-xl border border-gold-200 bg-black">
-              <video
-                src={video.src}
-                autoPlay
-                muted
-                loop
-                playsInline
-                className="h-full w-full object-cover"
-              />
-              <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-black/10">
-                <div className="flex h-14 w-14 items-center justify-center rounded-full bg-white/90 shadow-md">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" className="ml-0.5 text-saffron-700">
-                    <path d="M8 5v14l11-7z" />
-                  </svg>
+        <div className="no-scrollbar mt-10 flex snap-x snap-mandatory gap-5 overflow-x-auto pb-4">
+          {VIDEOS.map((video, i) => (
+            <button
+              key={i}
+              type="button"
+              onClick={() => setActiveVideo(video.src)}
+              className="w-[60%] flex-none snap-start text-left sm:w-[32%] lg:w-[22%]"
+            >
+              <div className="relative aspect-9/16 overflow-hidden rounded-xl border border-gold-200 bg-black">
+                <video
+                  src={video.src}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  className="h-full w-full object-cover"
+                />
+                <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-black/10">
+                  <div className="flex h-14 w-14 items-center justify-center rounded-full bg-white/90 shadow-md">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" className="ml-0.5 text-saffron-700">
+                      <path d="M8 5v14l11-7z" />
+                    </svg>
+                  </div>
                 </div>
               </div>
-            </div>
-            <p className="mt-3 font-body text-sm text-saffron-800">{video.title}</p>
-          </button>
-        ))}
-      </div>
+              <p className="mt-3 font-body text-sm text-saffron-800">{video.title}</p>
+            </button>
+          ))}
+        </div>
+      </Container>
 
       {activeVideo && (
         <div
