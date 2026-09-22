@@ -13,7 +13,7 @@ export default function Hero() {
   const hanumanRef = useRef<HTMLImageElement>(null);
   const gurujiRef = useRef<HTMLImageElement>(null);
   const glowRef = useRef<HTMLDivElement>(null);
-  const rayPathRef = useRef<SVGPathElement>(null);
+  const rayBeamRef = useRef<HTMLImageElement>(null);
   const rayDotRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -32,14 +32,11 @@ export default function Hero() {
           const { isMobile } = context.conditions as { isMobile: boolean };
           const pinDistance = isMobile ? "+=150%" : "+=250%";
 
-          const rayPath = rayPathRef.current;
-          const rayLength = rayPath ? rayPath.getTotalLength() : 0;
-
           gsap.set(hanumanRef.current, { filter: "brightness(0.15) saturate(0.3)", opacity: 0.45 });
           gsap.set(gurujiRef.current, { opacity: 0, scale: 0.9, y: 40 });
           gsap.set(glowRef.current, { opacity: 0 });
           gsap.set(overlayRef.current, { opacity: 1 });
-          gsap.set(rayPath, { strokeDasharray: rayLength, strokeDashoffset: rayLength, opacity: 0 });
+          gsap.set(rayBeamRef.current, { opacity: 0, scaleY: 0, transformOrigin: "50% 0%" });
           gsap.set(rayDotRef.current, { opacity: 0, scale: 0.4 });
 
           const tl = gsap.timeline({
@@ -88,13 +85,8 @@ export default function Hero() {
             )
             .addLabel("ray-draw", "hanuman-brighten+=1.4")
             .to(
-              rayPath,
-              { opacity: 1, duration: 0.15, ease: "none" },
-              "ray-draw"
-            )
-            .to(
-              rayPath,
-              { strokeDashoffset: 0, duration: 0.9, ease: "none" },
+              rayBeamRef.current,
+              { opacity: 0.9, scaleY: 1, duration: 0.9, ease: "none" },
               "ray-draw"
             )
             .addLabel("guruji-reveal", "ray-draw+=0.6")
@@ -133,8 +125,8 @@ export default function Hero() {
               "guruji-reveal"
             )
             .to(
-              rayPath,
-              { opacity: 0, duration: 0.4, ease: "none" },
+              rayBeamRef.current,
+              { opacity: 0.35, duration: 0.6, ease: "none" },
               "guruji-reveal+=0.5"
             );
         }
@@ -193,37 +185,14 @@ export default function Hero() {
         className="absolute left-1/2 bottom-0 h-[46%] -translate-x-1/2 object-contain"
       />
 
-      {/* Blessing beam: hand (~42,52) to Guruji's head (~50,58), in percent-of-section units */}
-      <svg
-        className="absolute inset-0 h-full w-full"
-        viewBox="0 0 100 100"
-        preserveAspectRatio="none"
+      {/* Blessing beam: grows down from Hanuman's hand toward Guruji's head via scaleY */}
+      <img
+        ref={rayBeamRef}
+        src="/assets/beam.png"
+        alt=""
+        className="absolute left-[46%] top-[46%] h-[13%] w-auto -translate-x-1/2 mix-blend-screen"
         aria-hidden="true"
-      >
-        <defs>
-          <linearGradient id="ray-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#fff7d6" />
-            <stop offset="100%" stopColor="#ffb347" />
-          </linearGradient>
-          <filter id="ray-glow" x="-100%" y="-100%" width="300%" height="300%">
-            <feGaussianBlur stdDeviation="1" result="blur" />
-            <feMerge>
-              <feMergeNode in="blur" />
-              <feMergeNode in="SourceGraphic" />
-            </feMerge>
-          </filter>
-        </defs>
-        <path
-          ref={rayPathRef}
-          d="M42,52 Q46,45 50,58"
-          fill="none"
-          stroke="url(#ray-gradient)"
-          strokeWidth="3"
-          strokeLinecap="round"
-          vectorEffect="non-scaling-stroke"
-          filter="url(#ray-glow)"
-        />
-      </svg>
+      />
 
       <div
         ref={rayDotRef}
