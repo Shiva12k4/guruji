@@ -4,10 +4,12 @@ export default function GuruParichay() {
   return (
     <section id="guru-parichay" className="w-full bg-white py-14 md:py-20">
       <Container className="grid grid-cols-1 items-center gap-10 md:grid-cols-2 md:gap-16">
-        <div className="mx-auto aspect-4/5 w-full max-w-sm overflow-hidden rounded-2xl border border-gold-200 bg-gradient-to-br from-saffron-100 to-gold-100 shadow-sm flex items-center justify-center">
-          <span className="font-body text-sm text-gold-600">
-            Guruji Photo (placeholder)
-          </span>
+        <div className="mx-auto aspect-4/5 w-full max-w-sm overflow-hidden rounded-2xl border border-gold-200 bg-gradient-to-br from-saffron-100 to-gold-100 shadow-sm">
+          <img
+            src="/assets/guruji-cutout.png"
+            alt="Guruji"
+            className="h-full w-full object-cover"
+          />
         </div>
 
         <div className="text-center md:text-left">
