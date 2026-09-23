@@ -14,23 +14,47 @@ export default function VideoSlider() {
   const [activeVideo, setActiveVideo] = useState<string | null>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [offset, setOffset] = useState(0);
+  const [pageCount, setPageCount] = useState(VIDEOS.length);
+  const viewportRef = useRef<HTMLDivElement>(null);
   const cardRefs = useRef<(HTMLButtonElement | null)[]>([]);
+  const currentIndexRef = useRef(0);
+
+  const getMaxIndex = () => {
+    const viewport = viewportRef.current;
+    const firstCard = cardRefs.current[0];
+    const secondCard = cardRefs.current[1];
+    if (!viewport || !firstCard) return VIDEOS.length - 1;
+
+    const cardWidth = firstCard.offsetWidth;
+    const gap = secondCard ? secondCard.offsetLeft - firstCard.offsetLeft - cardWidth : 24;
+    const visibleCount = Math.max(1, Math.round((viewport.clientWidth + gap) / (cardWidth + gap)));
+    return Math.max(0, VIDEOS.length - visibleCount);
+  };
 
   const updateOffset = (index: number) => {
     setOffset(cardRefs.current[index]?.offsetLeft ?? 0);
   };
 
   const goTo = (index: number) => {
-    const wrapped = ((index % VIDEOS.length) + VIDEOS.length) % VIDEOS.length;
+    const maxIndex = getMaxIndex();
+    const range = maxIndex + 1;
+    setPageCount(range);
+    const wrapped = ((index % range) + range) % range;
+    currentIndexRef.current = wrapped;
     setCurrentIndex(wrapped);
     updateOffset(wrapped);
   };
 
   useEffect(() => {
-    const handleResize = () => updateOffset(currentIndex);
+    setPageCount(getMaxIndex() + 1);
+    const handleResize = () => {
+      const maxIndex = getMaxIndex();
+      goTo(Math.min(currentIndexRef.current, maxIndex));
+    };
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
-  }, [currentIndex]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <section id="videos" className="w-full bg-saffron-50 py-14 md:py-20">
@@ -80,7 +104,7 @@ export default function VideoSlider() {
             </svg>
           </button>
 
-          <div className="overflow-hidden">
+          <div ref={viewportRef} className="overflow-hidden">
             <div
               className="flex gap-6 pb-1 transition-transform duration-500 ease-out"
               style={{ transform: `translateX(-${offset}px)` }}
@@ -116,12 +140,12 @@ export default function VideoSlider() {
         </div>
 
         <div className="mt-4 flex items-center justify-center gap-2">
-          {VIDEOS.map((_, i) => (
+          {Array.from({ length: pageCount }).map((_, i) => (
             <button
               key={i}
               type="button"
               onClick={() => goTo(i)}
-              aria-label={`Go to video ${i + 1}`}
+              aria-label={`Go to slide ${i + 1}`}
               className={`h-2.5 rounded-full transition-all ${
                 i === currentIndex ? "w-6 bg-saffron-600" : "w-2.5 bg-gold-200"
               }`}
