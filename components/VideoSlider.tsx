@@ -27,7 +27,9 @@ export default function VideoSlider() {
 
     const cardWidth = firstCard.offsetWidth;
     const gap = secondCard ? secondCard.offsetLeft - firstCard.offsetLeft - cardWidth : 24;
-    const visibleCount = Math.max(1, Math.round((viewport.clientWidth + gap) / (cardWidth + gap)));
+    // Floor (not round) so any partial overflow correctly counts as "doesn't fully fit",
+    // otherwise a nearly-full row rounds up to "all fit" and navigation locks to a single page.
+    const visibleCount = Math.max(1, Math.floor((viewport.clientWidth + gap) / (cardWidth + gap)));
     return Math.max(0, VIDEOS.length - visibleCount);
   };
 
@@ -82,27 +84,31 @@ export default function VideoSlider() {
         </div>
 
         <div className="relative mt-10">
-          <button
-            type="button"
-            onClick={() => goTo(currentIndex - 1)}
-            aria-label="Previous video"
-            className="absolute left-0 top-1/2 z-10 -translate-x-1/2 -translate-y-1/2 flex h-10 w-10 items-center justify-center rounded-full border border-gold-200 bg-white text-saffron-700 shadow-md transition-colors hover:bg-saffron-50"
-          >
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M15 6l-6 6 6 6" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </button>
+          {pageCount > 1 && (
+            <>
+              <button
+                type="button"
+                onClick={() => goTo(currentIndex - 1)}
+                aria-label="Previous video"
+                className="absolute left-0 top-1/2 z-10 -translate-x-1/2 -translate-y-1/2 flex h-10 w-10 items-center justify-center rounded-full border border-gold-200 bg-white text-saffron-700 shadow-md transition-colors hover:bg-saffron-50"
+              >
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M15 6l-6 6 6 6" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </button>
 
-          <button
-            type="button"
-            onClick={() => goTo(currentIndex + 1)}
-            aria-label="Next video"
-            className="absolute right-0 top-1/2 z-10 translate-x-1/2 -translate-y-1/2 flex h-10 w-10 items-center justify-center rounded-full border border-gold-200 bg-white text-saffron-700 shadow-md transition-colors hover:bg-saffron-50"
-          >
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M9 6l6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </button>
+              <button
+                type="button"
+                onClick={() => goTo(currentIndex + 1)}
+                aria-label="Next video"
+                className="absolute right-0 top-1/2 z-10 translate-x-1/2 -translate-y-1/2 flex h-10 w-10 items-center justify-center rounded-full border border-gold-200 bg-white text-saffron-700 shadow-md transition-colors hover:bg-saffron-50"
+              >
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M9 6l6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </button>
+            </>
+          )}
 
           <div ref={viewportRef} className="overflow-hidden">
             <div
@@ -117,7 +123,7 @@ export default function VideoSlider() {
                   }}
                   type="button"
                   onClick={() => setActiveVideo(video.src)}
-                  className="group w-[calc((100%-1.5rem)/2)] flex-none text-left sm:w-[calc((100%-3rem)/3)] lg:w-[calc((100%-4.5rem)/4)]"
+                  className="group w-[calc((100%-1.5rem)/2)] flex-none text-left sm:w-[calc((100%-3rem)/3)]"
                 >
                   <div className="relative aspect-3/4 overflow-hidden rounded-2xl border border-gold-200 bg-black shadow-md transition-shadow duration-300 group-hover:shadow-xl">
                     <video
@@ -139,7 +145,7 @@ export default function VideoSlider() {
           </div>
         </div>
 
-        <div className="mt-4 flex items-center justify-center gap-2">
+        <div className={`mt-4 flex items-center justify-center gap-2 ${pageCount <= 1 ? "hidden" : ""}`}>
           {Array.from({ length: pageCount }).map((_, i) => (
             <button
               key={i}
