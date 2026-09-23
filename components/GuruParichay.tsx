@@ -125,6 +125,7 @@ export default function GuruParichay() {
             <p className="mt-2 font-heading text-base italic leading-relaxed text-saffron-800">
               Sant ka sharir to chala jata hai, par unki urja hamesha rehti
               hai.
+              <span className="text-2xl leading-none text-saffron-400">&#10099;</span>
             </p>
             <span className="mt-3 font-body text-xs text-saffron-500">&mdash; Sant Vachan</span>
           </div>
@@ -137,6 +138,7 @@ export default function GuruParichay() {
             <p className="mt-2 font-heading text-base italic leading-relaxed text-saffron-800">
               Guru ki kripa se hi jeevan mein sacchi shanti aur disha milti
               hai.
+              <span className="text-2xl leading-none text-saffron-400">&#10099;</span>
             </p>
             <span className="mt-3 font-body text-xs text-saffron-500">&mdash; Guruji</span>
           </div>
