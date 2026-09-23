@@ -72,7 +72,7 @@ export default function GuruParichay() {
           </p>
         </div>
 
-        <div className="space-y-20 md:space-y-28">
+        <div className="space-y-10 md:space-y-14">
         {/* Devraha Baba */}
         <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-8">
           <div ref={devarahaImgRef} className="relative mx-auto w-full max-w-xs lg:col-span-4">
