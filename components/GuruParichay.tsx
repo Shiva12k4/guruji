@@ -79,7 +79,7 @@ export default function GuruParichay() {
               src="/assets/baba-bg.png"
               alt=""
               aria-hidden="true"
-              className="pointer-events-none absolute -inset-10 h-[calc(100%+5rem)] w-[calc(100%+5rem)] max-w-none object-contain"
+              className="pointer-events-none absolute -inset-10 h-[calc(100%+5rem)] w-[calc(100%+5rem)] max-w-none object-contain opacity-50"
             />
             <div
               className="relative aspect-4/5 w-full overflow-hidden shadow-lg"
