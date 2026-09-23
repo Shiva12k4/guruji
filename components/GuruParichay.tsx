@@ -75,10 +75,11 @@ export default function GuruParichay() {
         {/* Devraha Baba */}
         <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-8">
           <div ref={devarahaImgRef} className="relative mx-auto w-full max-w-xs lg:col-span-4">
-            <div
-              className="pointer-events-none absolute -inset-6 bg-gold-100"
-              style={{ borderRadius: BLOB }}
+            <img
+              src="/assets/baba-bg.png"
+              alt=""
               aria-hidden="true"
+              className="pointer-events-none absolute -inset-10 h-[calc(100%+5rem)] w-[calc(100%+5rem)] max-w-none object-contain"
             />
             <div
               className="relative aspect-4/5 w-full overflow-hidden bg-saffron-50 shadow-lg"
@@ -168,10 +169,11 @@ export default function GuruParichay() {
           </div>
 
           <div ref={gurujiImgRef} className="relative order-1 mx-auto w-full max-w-xs lg:order-3 lg:col-span-4">
-            <div
-              className="pointer-events-none absolute -inset-6 bg-gold-100"
-              style={{ borderRadius: BLOB }}
+            <img
+              src="/assets/baba-2bg.png"
+              alt=""
               aria-hidden="true"
+              className="pointer-events-none absolute -inset-10 h-[calc(100%+5rem)] w-[calc(100%+5rem)] max-w-none object-contain"
             />
             <div
               className="relative aspect-4/5 w-full overflow-hidden shadow-lg"
