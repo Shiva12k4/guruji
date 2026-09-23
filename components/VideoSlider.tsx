@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Container from "./Container";
 
 const VIDEOS = [
@@ -13,34 +13,24 @@ const VIDEOS = [
 export default function VideoSlider() {
   const [activeVideo, setActiveVideo] = useState<string | null>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const trackRef = useRef<HTMLDivElement>(null);
+  const [offset, setOffset] = useState(0);
   const cardRefs = useRef<(HTMLButtonElement | null)[]>([]);
+
+  const updateOffset = (index: number) => {
+    setOffset(cardRefs.current[index]?.offsetLeft ?? 0);
+  };
 
   const goTo = (index: number) => {
     const wrapped = ((index % VIDEOS.length) + VIDEOS.length) % VIDEOS.length;
     setCurrentIndex(wrapped);
-    cardRefs.current[wrapped]?.scrollIntoView({
-      behavior: "smooth",
-      inline: "start",
-      block: "nearest",
-    });
+    updateOffset(wrapped);
   };
 
-  const handleScroll = () => {
-    const track = trackRef.current;
-    if (!track) return;
-    let closest = 0;
-    let closestDistance = Infinity;
-    cardRefs.current.forEach((card, i) => {
-      if (!card) return;
-      const distance = Math.abs(card.offsetLeft - track.scrollLeft);
-      if (distance < closestDistance) {
-        closestDistance = distance;
-        closest = i;
-      }
-    });
-    setCurrentIndex(closest);
-  };
+  useEffect(() => {
+    const handleResize = () => updateOffset(currentIndex);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, [currentIndex]);
 
   return (
     <section id="videos" className="w-full bg-saffron-50 py-14 md:py-20">
@@ -90,37 +80,38 @@ export default function VideoSlider() {
             </svg>
           </button>
 
-          <div
-            ref={trackRef}
-            onScroll={handleScroll}
-            className="no-scrollbar flex snap-x snap-mandatory gap-6 overflow-x-auto pb-4"
-          >
-            {VIDEOS.map((video, i) => (
-              <button
-                key={i}
-                ref={(el) => {
-                  cardRefs.current[i] = el;
-                }}
-                type="button"
-                onClick={() => setActiveVideo(video.src)}
-                className="group w-[50%] flex-none snap-start text-left sm:w-[29%] lg:w-[22%]"
-              >
-                <div className="relative aspect-3/4 overflow-hidden rounded-2xl border border-gold-200 bg-black shadow-md transition-shadow duration-300 group-hover:shadow-xl">
-                  <video
-                    src={video.src}
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                  <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-black/50 via-transparent to-transparent" />
-                </div>
-                <p className="mt-3 font-body text-sm font-medium text-saffron-800 transition-colors group-hover:text-saffron-600">
-                  {video.title}
-                </p>
-              </button>
-            ))}
+          <div className="overflow-hidden">
+            <div
+              className="flex gap-6 pb-1 transition-transform duration-500 ease-out"
+              style={{ transform: `translateX(-${offset}px)` }}
+            >
+              {VIDEOS.map((video, i) => (
+                <button
+                  key={i}
+                  ref={(el) => {
+                    cardRefs.current[i] = el;
+                  }}
+                  type="button"
+                  onClick={() => setActiveVideo(video.src)}
+                  className="group w-[50%] flex-none text-left sm:w-[29%] lg:w-[22%]"
+                >
+                  <div className="relative aspect-3/4 overflow-hidden rounded-2xl border border-gold-200 bg-black shadow-md transition-shadow duration-300 group-hover:shadow-xl">
+                    <video
+                      src={video.src}
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                    <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-black/50 via-transparent to-transparent" />
+                  </div>
+                  <p className="mt-3 font-body text-sm font-medium text-saffron-800 transition-colors group-hover:text-saffron-600">
+                    {video.title}
+                  </p>
+                </button>
+              ))}
+            </div>
           </div>
         </div>
 
