@@ -1,11 +1,11 @@
 import Container from "./Container";
 
 const PHOTOS = [
-  { src: "/assets/gallery1.jpeg", span: "md:col-span-2 md:row-span-2" },
-  { src: "/assets/gallery2.jpeg", span: "md:col-span-2 md:row-span-1" },
-  { src: "/assets/gallery3.jpeg", span: "md:col-span-1 md:row-span-1" },
-  { src: "/assets/gallery4.jpeg", span: "md:col-span-1 md:row-span-1" },
-  { src: "/assets/gallery5.png", span: "md:col-span-4 md:row-span-1" },
+  "/assets/gallery1.jpeg",
+  "/assets/gallery2.jpeg",
+  "/assets/gallery3.jpeg",
+  "/assets/gallery4.jpeg",
+  "/assets/gallery5.png",
 ];
 
 export default function Gallery() {
@@ -29,16 +29,16 @@ export default function Gallery() {
           </a>
         </div>
 
-        <div className="mt-10 grid grid-cols-2 auto-rows-40 gap-4 md:grid-cols-4 md:auto-rows-50">
-          {PHOTOS.map((photo, i) => (
+        <div className="mt-10 columns-2 gap-4 sm:columns-3 md:columns-4">
+          {PHOTOS.map((src, i) => (
             <div
               key={i}
-              className={`group overflow-hidden rounded-xl border border-gold-200 ${photo.span}`}
+              className="group mb-4 break-inside-avoid overflow-hidden rounded-xl border border-gold-200"
             >
               <img
-                src={photo.src}
+                src={src}
                 alt={`Gallery photo ${i + 1}`}
-                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                className="block h-auto w-full transition-transform duration-500 group-hover:scale-110"
               />
             </div>
           ))}
