@@ -93,7 +93,7 @@ export default function VideoSlider() {
                   }}
                   type="button"
                   onClick={() => setActiveVideo(video.src)}
-                  className="group w-[50%] flex-none text-left sm:w-[29%] lg:w-[22%]"
+                  className="group w-[calc((100%-1.5rem)/2)] flex-none text-left sm:w-[calc((100%-3rem)/3)] lg:w-[calc((100%-4.5rem)/4)]"
                 >
                   <div className="relative aspect-3/4 overflow-hidden rounded-2xl border border-gold-200 bg-black shadow-md transition-shadow duration-300 group-hover:shadow-xl">
                     <video
