@@ -82,7 +82,7 @@ export default function GuruParichay() {
               className="pointer-events-none absolute -inset-10 h-[calc(100%+5rem)] w-[calc(100%+5rem)] max-w-none object-contain"
             />
             <div
-              className="relative aspect-4/5 w-full overflow-hidden bg-saffron-50 shadow-lg"
+              className="relative aspect-4/5 w-full overflow-hidden shadow-lg"
               style={{ borderRadius: BLOB }}
             >
               <img
