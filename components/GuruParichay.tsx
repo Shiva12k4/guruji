@@ -62,7 +62,7 @@ export default function GuruParichay() {
       id="guru-parichay"
       className="w-full bg-white py-7 md:py-10"
     >
-      <Container className="space-y-20 md:space-y-28">
+      <Container>
         <div className="text-center">
           <h2 className="font-heading text-3xl md:text-5xl font-semibold text-saffron-800">
             Sant Parichay
@@ -72,6 +72,7 @@ export default function GuruParichay() {
           </p>
         </div>
 
+        <div className="space-y-20 md:space-y-28">
         {/* Devraha Baba */}
         <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-8">
           <div ref={devarahaImgRef} className="relative mx-auto w-full max-w-xs lg:col-span-4">
@@ -186,6 +187,7 @@ export default function GuruParichay() {
               />
             </div>
           </div>
+        </div>
         </div>
       </Container>
     </section>
