@@ -15,7 +15,7 @@ export default function Navbar() {
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 bg-gradient-to-b from-black/50 via-black/20 to-transparent">
-      <nav className="mx-auto flex max-w-330 items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
+      <nav className="mx-auto flex max-w-330 items-center justify-between px-4 py-4 sm:px-6">
         <a
           href="#home"
           className="font-heading text-2xl font-semibold text-gold-100 drop-shadow-[0_1px_6px_rgba(0,0,0,0.7)]"
