@@ -5,6 +5,7 @@ import VideoSlider from "@/components/VideoSlider";
 import UpcomingEvents from "@/components/UpcomingEvents";
 import Gallery from "@/components/Gallery";
 import DonationCTA from "@/components/DonationCTA";
+import ContactUs from "@/components/ContactUs";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -17,6 +18,7 @@ export default function Home() {
       <UpcomingEvents />
       <Gallery />
       <DonationCTA />
+      <ContactUs />
       <Footer />
     </main>
   );
