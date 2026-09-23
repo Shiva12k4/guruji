@@ -4,7 +4,7 @@ export default function DonationCTA() {
   return (
     <section
       id="donate"
-      className="w-full bg-gradient-to-r from-saffron-600 via-saffron-500 to-gold-500 py-16 md:py-20"
+      className="w-full bg-linear-to-r from-saffron-600 via-saffron-500 to-gold-500 py-8 md:py-10"
     >
       <Container className="text-center">
         <h2 className="font-heading text-3xl md:text-5xl font-semibold text-white">

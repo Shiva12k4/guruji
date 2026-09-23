@@ -10,7 +10,7 @@ const PHOTOS = [
 
 export default function Gallery() {
   return (
-    <section id="gallery" className="w-full bg-saffron-50 py-14 md:py-20">
+    <section id="gallery" className="w-full bg-saffron-50 py-7 md:py-10">
       <Container>
         <div className="flex flex-col items-center justify-between gap-2 text-center sm:flex-row sm:text-left">
           <div>

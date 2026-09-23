@@ -60,7 +60,7 @@ export default function GuruParichay() {
     <section
       ref={sectionRef}
       id="guru-parichay"
-      className="w-full bg-white py-14 md:py-20"
+      className="w-full bg-white py-7 md:py-10"
     >
       <Container className="space-y-20 md:space-y-28">
         <div className="text-center">

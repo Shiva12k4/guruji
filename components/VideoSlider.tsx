@@ -59,7 +59,7 @@ export default function VideoSlider() {
   }, []);
 
   return (
-    <section id="videos" className="w-full bg-saffron-50 py-14 md:py-20">
+    <section id="videos" className="w-full bg-saffron-50 py-7 md:py-10">
       <Container>
         <div className="flex flex-col items-center justify-between gap-3 text-center sm:flex-row sm:text-left">
           <div>

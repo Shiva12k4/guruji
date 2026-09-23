@@ -3,7 +3,7 @@ import Container from "./Container";
 export default function Footer() {
   return (
     <footer className="bg-saffron-900 text-saffron-100">
-      <Container className="grid grid-cols-1 gap-10 py-14 sm:grid-cols-3">
+      <Container className="grid grid-cols-1 gap-10 py-7 sm:grid-cols-3">
         <div>
           <h3 className="font-heading text-2xl text-gold-200">Guruji Ashram</h3>
           <p className="mt-3 font-body text-sm text-saffron-200/80">

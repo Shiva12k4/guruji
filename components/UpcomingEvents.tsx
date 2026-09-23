@@ -77,7 +77,7 @@ const EVENTS = [
 
 export default function UpcomingEvents() {
   return (
-    <section id="events" className="w-full bg-white py-14 md:py-20">
+    <section id="events" className="w-full bg-white py-7 md:py-10">
       <Container>
         <div className="flex flex-col items-center justify-between gap-3 text-center sm:flex-row sm:text-left">
           <div>
