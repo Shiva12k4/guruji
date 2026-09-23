@@ -37,40 +37,40 @@ export default function VideoSlider() {
             <span className="transition-transform group-hover:translate-x-1">&rarr;</span>
           </a>
         </div>
+      </Container>
 
-        <div className="no-scrollbar mt-10 flex snap-x snap-mandatory gap-6 overflow-x-auto pb-4">
-          {VIDEOS.map((video, i) => (
-            <button
-              key={i}
-              type="button"
-              onClick={() => setActiveVideo(video.src)}
-              className="group w-[72%] flex-none snap-start text-left sm:w-[42%] lg:w-[31%]"
-            >
-              <div className="relative aspect-9/16 overflow-hidden rounded-2xl border border-gold-200 bg-black shadow-md transition-shadow duration-300 group-hover:shadow-xl">
-                <video
-                  src={video.src}
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-                <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-black/50 via-transparent to-transparent" />
-                <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
-                  <div className="flex h-16 w-16 items-center justify-center rounded-full bg-white/90 shadow-lg transition-transform duration-300 group-hover:scale-110">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" className="ml-0.5 text-saffron-700">
-                      <path d="M8 5v14l11-7z" />
-                    </svg>
-                  </div>
+      <div className="no-scrollbar mt-10 flex snap-x snap-mandatory gap-6 overflow-x-auto py-1 pb-4 pl-[max(1rem,calc((100vw-82.5rem)/2+1.5rem))] pr-4">
+        {VIDEOS.map((video, i) => (
+          <button
+            key={i}
+            type="button"
+            onClick={() => setActiveVideo(video.src)}
+            className="group w-[72%] flex-none snap-start text-left sm:w-[42%] lg:w-[31%]"
+          >
+            <div className="relative aspect-9/16 overflow-hidden rounded-2xl border border-gold-200 bg-black shadow-md transition-shadow duration-300 group-hover:shadow-xl">
+              <video
+                src={video.src}
+                autoPlay
+                muted
+                loop
+                playsInline
+                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-black/50 via-transparent to-transparent" />
+              <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
+                <div className="flex h-16 w-16 items-center justify-center rounded-full bg-white/90 shadow-lg transition-transform duration-300 group-hover:scale-110">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" className="ml-0.5 text-saffron-700">
+                    <path d="M8 5v14l11-7z" />
+                  </svg>
                 </div>
               </div>
-              <p className="mt-3 font-body text-sm font-medium text-saffron-800 transition-colors group-hover:text-saffron-600">
-                {video.title}
-              </p>
-            </button>
-          ))}
-        </div>
-      </Container>
+            </div>
+            <p className="mt-3 font-body text-sm font-medium text-saffron-800 transition-colors group-hover:text-saffron-600">
+              {video.title}
+            </p>
+          </button>
+        ))}
+      </div>
 
       {activeVideo && (
         <div
