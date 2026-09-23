@@ -4,10 +4,10 @@ import { useEffect, useRef, useState } from "react";
 import Container from "./Container";
 
 const VIDEOS = [
-  { src: "/assets/homepage-video.mp4", title: "Video 1" },
-  { src: "/assets/homepage-video2.mp4", title: "Video 2" },
-  { src: "/assets/homepage-video3.mp4", title: "Video 3" },
-  { src: "/assets/homepage-video4.mp4", title: "Video 4" },
+  { src: "/assets/homepage-video.mp4", title: "Maha Aarti Darshan" },
+  { src: "/assets/homepage-video2.mp4", title: "Satsang Pravachan" },
+  { src: "/assets/homepage-video3.mp4", title: "Bhajan Sandhya" },
+  { src: "/assets/homepage-video4.mp4", title: "Yatra Jhalkiyaan" },
 ];
 
 export default function VideoSlider() {
@@ -112,7 +112,7 @@ export default function VideoSlider() {
 
           <div ref={viewportRef} className="overflow-hidden">
             <div
-              className="flex gap-6 pb-1 transition-transform duration-500 ease-out"
+              className="flex gap-6 pb-8 transition-transform duration-500 ease-out"
               style={{ transform: `translateX(-${offset}px)` }}
             >
               {VIDEOS.map((video, i) => (
@@ -123,7 +123,7 @@ export default function VideoSlider() {
                   }}
                   type="button"
                   onClick={() => setActiveVideo(video.src)}
-                  className="group w-[calc((100%-1.5rem)/2)] flex-none text-left sm:w-[calc((100%-3rem)/3)]"
+                  className="group relative w-[calc((100%-1.5rem)/2)] flex-none text-left sm:w-[calc((100%-3rem)/3)]"
                 >
                   <div className="relative aspect-3/4 overflow-hidden rounded-2xl border border-gold-200 bg-black shadow-md transition-shadow duration-300 group-hover:shadow-xl">
                     <video
@@ -136,9 +136,11 @@ export default function VideoSlider() {
                     />
                     <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-black/50 via-transparent to-transparent" />
                   </div>
-                  <p className="mt-3 font-body text-sm font-medium text-saffron-800 transition-colors group-hover:text-saffron-600">
-                    {video.title}
-                  </p>
+                  <div className="absolute inset-x-4 bottom-0 translate-y-1/2 rounded-xl border border-gold-200 bg-white px-4 py-2.5 text-center shadow-md transition-colors duration-300 group-hover:border-saffron-300">
+                    <p className="font-body text-sm font-medium text-saffron-800 transition-colors group-hover:text-saffron-600">
+                      {video.title}
+                    </p>
+                  </div>
                 </button>
               ))}
             </div>
