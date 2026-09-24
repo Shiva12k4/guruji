@@ -1,4 +1,11 @@
+"use client";
+
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Container from "./Container";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const EVENTS = [
   {
@@ -76,10 +83,55 @@ const EVENTS = [
 ];
 
 export default function UpcomingEvents() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const headingRef = useRef<HTMLDivElement>(null);
+  const gridRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const section = sectionRef.current;
+    if (!section) return;
+
+    const ctx = gsap.context(() => {
+      if (headingRef.current) {
+        gsap.set(headingRef.current, { y: 30, opacity: 0 });
+        gsap.to(headingRef.current, {
+          y: 0,
+          opacity: 1,
+          duration: 0.7,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: headingRef.current,
+            start: "top 85%",
+            once: true,
+          },
+        });
+      }
+
+      const cards = gridRef.current ? Array.from(gridRef.current.children) : [];
+      if (cards.length) {
+        gsap.set(cards, { y: 40, opacity: 0 });
+        gsap.to(cards, {
+          y: 0,
+          opacity: 1,
+          duration: 0.7,
+          ease: "power2.out",
+          stagger: 0.12,
+          scrollTrigger: {
+            trigger: gridRef.current,
+            start: "top 85%",
+            once: true,
+          },
+        });
+      }
+    }, section);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <section id="events" className="w-full bg-white py-7 md:py-10">
+    <section ref={sectionRef} id="events" className="w-full bg-white py-7 md:py-10">
       <Container>
-        <div className="flex flex-col items-center justify-between gap-3 text-center sm:flex-row sm:text-left">
+        <div ref={headingRef} className="flex flex-col items-center justify-between gap-3 text-center sm:flex-row sm:text-left">
           <div>
             <span className="font-body text-xs font-semibold uppercase tracking-widest text-saffron-500">
               Calendar
@@ -101,11 +153,11 @@ export default function UpcomingEvents() {
           </a>
         </div>
 
-        <div className="mt-10 grid grid-cols-1 gap-5 md:grid-cols-2">
+        <div ref={gridRef} className="mt-10 grid grid-cols-1 gap-5 md:grid-cols-2">
           {EVENTS.map((event, i) => (
             <div
               key={i}
-              className="group relative flex items-stretch gap-5 overflow-hidden rounded-2xl border border-gold-200 bg-saffron-50/60 p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:bg-white"
+              className="group relative flex items-stretch gap-5 overflow-hidden rounded-2xl border border-gold-200 bg-saffron-50/60 p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:scale-[1.03] hover:shadow-xl hover:bg-white"
             >
               {i === 0 && (
                 <span className="absolute right-4 top-4 rounded-full bg-saffron-600 px-3 py-1 font-body text-[10px] font-semibold uppercase tracking-wide text-white">

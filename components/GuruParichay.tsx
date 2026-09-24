@@ -19,6 +19,7 @@ function ArrowIcon() {
 
 export default function GuruParichay() {
   const sectionRef = useRef<HTMLElement>(null);
+  const headingRef = useRef<HTMLDivElement>(null);
   const devarahaImgRef = useRef<HTMLDivElement>(null);
   const devarahaTextRef = useRef<HTMLDivElement>(null);
   const gurujiTextRef = useRef<HTMLDivElement>(null);
@@ -29,6 +30,21 @@ export default function GuruParichay() {
     if (!section) return;
 
     const ctx = gsap.context(() => {
+      if (headingRef.current) {
+        gsap.set(headingRef.current, { y: 30, opacity: 0 });
+        gsap.to(headingRef.current, {
+          y: 0,
+          opacity: 1,
+          duration: 0.7,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: headingRef.current,
+            start: "top 85%",
+            once: true,
+          },
+        });
+      }
+
       const reveals: [HTMLElement | null, number][] = [
         [devarahaImgRef.current, -80],
         [devarahaTextRef.current, 80],
@@ -63,7 +79,7 @@ export default function GuruParichay() {
       className="w-full bg-white py-7 md:py-10"
     >
       <Container>
-        <div className="text-center">
+        <div ref={headingRef} className="text-center">
           <h2 className="font-heading text-3xl md:text-5xl font-semibold text-saffron-800">
             Sant Parichay
           </h2>

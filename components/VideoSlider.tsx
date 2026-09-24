@@ -1,7 +1,11 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Container from "./Container";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const VIDEOS = [
   { src: "/assets/homepage-video.mp4", title: "Maha Aarti Darshan" },
@@ -18,6 +22,8 @@ export default function VideoSlider() {
   const viewportRef = useRef<HTMLDivElement>(null);
   const cardRefs = useRef<(HTMLButtonElement | null)[]>([]);
   const currentIndexRef = useRef(0);
+  const sectionRef = useRef<HTMLElement>(null);
+  const headingRef = useRef<HTMLDivElement>(null);
 
   const getMaxIndex = () => {
     const viewport = viewportRef.current;
@@ -58,10 +64,51 @@ export default function VideoSlider() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  useEffect(() => {
+    const section = sectionRef.current;
+    if (!section) return;
+
+    const ctx = gsap.context(() => {
+      if (headingRef.current) {
+        gsap.set(headingRef.current, { y: 30, opacity: 0 });
+        gsap.to(headingRef.current, {
+          y: 0,
+          opacity: 1,
+          duration: 0.7,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: headingRef.current,
+            start: "top 85%",
+            once: true,
+          },
+        });
+      }
+
+      const cards = cardRefs.current.filter(Boolean);
+      if (cards.length) {
+        gsap.set(cards, { y: 40, opacity: 0 });
+        gsap.to(cards, {
+          y: 0,
+          opacity: 1,
+          duration: 0.7,
+          ease: "power2.out",
+          stagger: 0.12,
+          scrollTrigger: {
+            trigger: viewportRef.current,
+            start: "top 85%",
+            once: true,
+          },
+        });
+      }
+    }, section);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <section id="videos" className="w-full bg-saffron-50 py-7 md:py-10">
+    <section ref={sectionRef} id="videos" className="w-full bg-saffron-50 py-7 md:py-10">
       <Container>
-        <div className="flex flex-col items-center justify-between gap-3 text-center sm:flex-row sm:text-left">
+        <div ref={headingRef} className="flex flex-col items-center justify-between gap-3 text-center sm:flex-row sm:text-left">
           <div>
             <span className="font-body text-xs font-semibold uppercase tracking-widest text-saffron-500">
               Media
@@ -123,7 +170,7 @@ export default function VideoSlider() {
                   }}
                   type="button"
                   onClick={() => setActiveVideo(video.src)}
-                  className="group relative w-[calc((100%-1.5rem)/2)] flex-none text-left sm:w-[calc((100%-3rem)/3)]"
+                  className="group relative w-[calc((100%-1.5rem)/2)] flex-none text-left transition-transform duration-300 ease-out hover:scale-[1.04] sm:w-[calc((100%-3rem)/3)]"
                 >
                   <div className="relative aspect-3/4 overflow-hidden rounded-2xl border border-gold-200 bg-black shadow-md transition-shadow duration-300 group-hover:shadow-xl">
                     <video
@@ -132,7 +179,7 @@ export default function VideoSlider() {
                       muted
                       loop
                       playsInline
-                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      className="h-full w-full object-cover"
                     />
                     <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-black/50 via-transparent to-transparent" />
                   </div>

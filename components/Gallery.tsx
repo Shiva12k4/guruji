@@ -1,4 +1,11 @@
+"use client";
+
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Container from "./Container";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const PHOTOS = [
   { src: "/assets/gallery1.jpeg", span: "row-span-2", position: "object-top" },
@@ -9,10 +16,55 @@ const PHOTOS = [
 ];
 
 export default function Gallery() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const headingRef = useRef<HTMLDivElement>(null);
+  const gridRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const section = sectionRef.current;
+    if (!section) return;
+
+    const ctx = gsap.context(() => {
+      if (headingRef.current) {
+        gsap.set(headingRef.current, { y: 30, opacity: 0 });
+        gsap.to(headingRef.current, {
+          y: 0,
+          opacity: 1,
+          duration: 0.7,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: headingRef.current,
+            start: "top 85%",
+            once: true,
+          },
+        });
+      }
+
+      const tiles = gridRef.current ? Array.from(gridRef.current.children) : [];
+      if (tiles.length) {
+        gsap.set(tiles, { y: 40, opacity: 0 });
+        gsap.to(tiles, {
+          y: 0,
+          opacity: 1,
+          duration: 0.7,
+          ease: "power2.out",
+          stagger: 0.1,
+          scrollTrigger: {
+            trigger: gridRef.current,
+            start: "top 85%",
+            once: true,
+          },
+        });
+      }
+    }, section);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <section id="gallery" className="w-full bg-saffron-50 py-7 md:py-10">
+    <section ref={sectionRef} id="gallery" className="w-full bg-saffron-50 py-7 md:py-10">
       <Container>
-        <div className="flex flex-col items-center justify-between gap-2 text-center sm:flex-row sm:text-left">
+        <div ref={headingRef} className="flex flex-col items-center justify-between gap-2 text-center sm:flex-row sm:text-left">
           <div>
             <h2 className="font-heading text-3xl md:text-5xl font-semibold text-saffron-800">
               Gallery
@@ -29,11 +81,11 @@ export default function Gallery() {
           </a>
         </div>
 
-        <div className="mt-10 grid grid-cols-2 auto-rows-55 gap-4 sm:grid-cols-3 sm:auto-rows-75">
+        <div ref={gridRef} className="mt-10 grid grid-cols-2 auto-rows-55 gap-4 sm:grid-cols-3 sm:auto-rows-75">
           {PHOTOS.map((photo, i) => (
             <div
               key={i}
-              className={`group overflow-hidden rounded-xl border border-gold-200 ${photo.span}`}
+              className={`group overflow-hidden rounded-xl border border-gold-200 shadow-sm transition-shadow duration-300 hover:shadow-xl ${photo.span}`}
             >
               <img
                 src={photo.src}

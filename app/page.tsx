@@ -1,4 +1,5 @@
 import Navbar from "@/components/Navbar";
+import ScrollRefresh from "@/components/ScrollRefresh";
 import Hero from "@/components/Hero";
 import GuruParichay from "@/components/GuruParichay";
 import VideoSlider from "@/components/VideoSlider";
@@ -11,6 +12,7 @@ import Footer from "@/components/Footer";
 export default function Home() {
   return (
     <main>
+      <ScrollRefresh />
       <Navbar />
       <Hero />
       <GuruParichay />
