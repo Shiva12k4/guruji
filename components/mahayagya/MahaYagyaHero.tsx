@@ -68,7 +68,27 @@ export default function MahaYagyaHero() {
       />
 
       <Container className="relative z-10 flex flex-col items-center px-6 py-20 text-center">
-        <span className="font-body text-xs font-semibold uppercase tracking-[0.25em] text-gold-200/80">
+        <div className="relative h-28 w-28 md:h-36 md:w-36">
+          <div
+            aria-hidden="true"
+            className="absolute inset-0 rounded-full blur-xl animate-glow-pulse"
+            style={{
+              background:
+                "radial-gradient(circle, rgba(255,180,90,0.6) 0%, rgba(255,120,30,0.2) 60%, rgba(255,120,30,0) 80%)",
+            }}
+          />
+          <img
+            src="https://media1.tenor.com/m/bQHQ6hZJm2oAAAAd/havan-yaj.gif"
+            alt=""
+            aria-hidden="true"
+            className="relative h-full w-full object-contain"
+            style={{
+              maskImage: "radial-gradient(circle, black 50%, transparent 72%)",
+              WebkitMaskImage: "radial-gradient(circle, black 50%, transparent 72%)",
+            }}
+          />
+        </div>
+        <span className="mt-2 font-body text-xs font-semibold uppercase tracking-[0.25em] text-gold-200/80">
           Guruji ka Sankalp
         </span>
         <h1 className="mt-4 font-heading text-4xl font-semibold text-gold-100 drop-shadow-[0_2px_14px_rgba(0,0,0,0.6)] md:text-6xl">
