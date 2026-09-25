@@ -76,7 +76,7 @@ export default function GuruParichay() {
     <section
       ref={sectionRef}
       id="guru-parichay"
-      className="w-full bg-white py-7 md:py-10"
+      className="w-full overflow-x-hidden bg-white py-7 md:py-10"
     >
       <Container>
         <div ref={headingRef} className="text-center">
