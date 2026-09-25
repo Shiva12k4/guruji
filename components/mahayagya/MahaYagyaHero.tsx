@@ -51,12 +51,12 @@ export default function MahaYagyaHero() {
   return (
     <section
       id="maha-yagya-hero"
-      className="relative flex min-h-[85vh] w-full items-center overflow-hidden bg-saffron-950"
+      className="relative w-full overflow-hidden bg-saffron-950"
     >
       <img
         src="/assets/yagya-hero-banner.png"
         alt="Guruji ka Sankalp - Shri Maruti Mahayagya"
-        className="absolute inset-0 h-full w-full object-cover"
+        className="w-full h-auto object-contain"
       />
 
       {/*

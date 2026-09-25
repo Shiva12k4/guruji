@@ -11,7 +11,7 @@ import { mahaYagyaData, type StateCode } from "@/constants/mahaYagyaData";
 gsap.registerPlugin(ScrollTrigger);
 
 const YEARS = Array.from(new Set(mahaYagyaData.map((e) => e.year))).sort(
-  (a, b) => a - b
+  (a, b) => b - a
 );
 
 export default function YagyaDataWall() {
