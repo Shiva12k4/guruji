@@ -69,7 +69,7 @@ export default function MahaYagyaHero() {
         className="w-full py-10"
         style={{
           background:
-            "radial-gradient(circle at 50% 30%, #7c2d12 0%, #3a1508 55%, #1a0a04 100%)",
+            "linear-gradient(to bottom, #8a4a1f 0%, #6b3316 45%, #3a1a0b 80%, #1a0a04 100%)",
         }}
       >
         <Container>
