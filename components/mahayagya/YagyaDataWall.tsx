@@ -109,7 +109,7 @@ export default function YagyaDataWall() {
         </div>
 
         <div className="mt-8 lg:flex lg:items-start lg:gap-10">
-          <div className="hidden shrink-0 lg:sticky lg:top-24 lg:block lg:w-64">
+          <div className="hidden shrink-0 lg:sticky lg:top-24 lg:block lg:w-80 xl:w-96">
             <p className="mb-3 text-center font-body text-xs font-semibold uppercase tracking-widest text-gold-300/80">
               Rajya se Filter Karein
             </p>
@@ -129,7 +129,7 @@ export default function YagyaDataWall() {
                   className={`shrink-0 rounded-full px-4 py-1.5 font-body text-sm font-medium transition-colors ${
                     selectedYear === "All"
                       ? "bg-saffron-600 text-white"
-                      : "border border-gold-200/30 text-gold-200 hover:bg-white/5"
+                      : "border border-gold-700/40 text-gold-100 hover:bg-white/5"
                   }`}
                 >
                   All
@@ -142,7 +142,7 @@ export default function YagyaDataWall() {
                     className={`shrink-0 rounded-full px-4 py-1.5 font-body text-sm font-medium transition-colors ${
                       selectedYear === year
                         ? "bg-saffron-600 text-white"
-                        : "border border-gold-200/30 text-gold-200 hover:bg-white/5"
+                        : "border border-gold-700/40 text-gold-100 hover:bg-white/5"
                     }`}
                   >
                     {year}
@@ -154,7 +154,7 @@ export default function YagyaDataWall() {
             <div ref={gridWrapperRef} className="relative mt-6 lg:pl-8">
               <div
                 aria-hidden="true"
-                className="absolute -left-1 top-0 bottom-0 hidden w-px bg-gold-200/20 lg:block"
+                className="absolute -left-1 top-0 bottom-0 hidden w-px bg-gold-700/30 lg:block"
               >
                 <div
                   ref={lineFillRef}

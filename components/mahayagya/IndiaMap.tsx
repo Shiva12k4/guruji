@@ -25,10 +25,20 @@ export default function IndiaMap({
     <div className="flex flex-col items-center">
       <svg
         viewBox={INDIA_MAP_VIEWBOX}
-        className="h-auto w-full max-w-xs"
+        className="h-auto w-full max-w-none"
         role="img"
         aria-label="India map, click a highlighted state to filter"
       >
+        <defs>
+          <filter id="state-glow" x="-60%" y="-60%" width="220%" height="220%">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur" />
+            <feMerge>
+              <feMergeNode in="blur" />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
+        </defs>
+
         {INDIA_MAP_PATHS.map((p) => {
           const isActive = ACTIVE_IDS.has(p.id);
           const code = p.id as StateCode;
@@ -36,7 +46,17 @@ export default function IndiaMap({
           const isHovered = hovered === code;
 
           if (!isActive) {
-            return <path key={p.id} d={p.d} fill="#f3da8c" fillOpacity={0.12} stroke="#f3da8c" strokeOpacity={0.25} strokeWidth={0.6} />;
+            return (
+              <path
+                key={p.id}
+                d={p.d}
+                fill="#3a2410"
+                fillOpacity={0.6}
+                stroke="#a67c3d"
+                strokeOpacity={0.25}
+                strokeWidth={0.6}
+              />
+            );
           }
 
           return (
@@ -47,10 +67,12 @@ export default function IndiaMap({
               onMouseEnter={() => setHovered(code)}
               onMouseLeave={() => setHovered(null)}
               className="cursor-pointer transition-colors duration-200"
-              fill={isSelected || isHovered ? "#ea560c" : "#f97316"}
-              fillOpacity={isSelected ? 1 : isHovered ? 0.9 : 0.8}
-              stroke="#1a0a04"
-              strokeWidth={0.8}
+              fill={isSelected || isHovered ? "#ff8c3d" : "#ea560c"}
+              fillOpacity={isSelected ? 1 : isHovered ? 0.95 : 0.85}
+              stroke="#f3da8c"
+              strokeOpacity={isSelected || isHovered ? 0.8 : 0.4}
+              strokeWidth={0.9}
+              filter={isSelected || isHovered ? "url(#state-glow)" : undefined}
             />
           );
         })}
