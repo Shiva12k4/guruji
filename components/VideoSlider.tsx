@@ -172,7 +172,7 @@ export default function VideoSlider() {
                   onClick={() => setActiveVideo(video.src)}
                   className="group relative w-[calc((100%-1.5rem)/2)] flex-none text-left transition-transform duration-300 ease-out hover:scale-[1.04] sm:w-[calc((100%-3rem)/3)]"
                 >
-                  <div className="relative aspect-3/4 overflow-hidden rounded-2xl border border-gold-200 bg-black shadow-md transition-shadow duration-300 group-hover:shadow-xl">
+                  <div className="relative aspect-2/3 overflow-hidden rounded-2xl border border-gold-200 bg-black shadow-md transition-shadow duration-300 group-hover:shadow-xl">
                     <video
                       src={video.src}
                       autoPlay
@@ -183,8 +183,8 @@ export default function VideoSlider() {
                     />
                     <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-black/50 via-transparent to-transparent" />
                   </div>
-                  <div className="absolute inset-x-4 bottom-0 translate-y-1/2 rounded-xl border border-gold-200 bg-white px-4 py-2.5 text-center shadow-md transition-colors duration-300 group-hover:border-saffron-300">
-                    <p className="font-body text-sm font-medium text-saffron-800 transition-colors group-hover:text-saffron-600">
+                  <div className="absolute inset-x-4 bottom-0 translate-y-1/2 rounded-xl border border-gold-200 bg-white px-2 py-1 text-center shadow-md transition-colors duration-300 group-hover:border-saffron-300 sm:px-4 sm:py-2.5">
+                    <p className="font-body text-[11px] font-medium text-saffron-800 transition-colors group-hover:text-saffron-600 sm:text-sm">
                       {video.title}
                     </p>
                   </div>

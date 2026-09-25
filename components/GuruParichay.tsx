@@ -90,13 +90,13 @@ export default function GuruParichay() {
 
         <div className="space-y-10 md:space-y-14">
         {/* Devraha Baba */}
-        <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-8">
-          <div ref={devarahaImgRef} className="relative mx-auto w-full max-w-xs lg:col-span-4">
+        <div className="grid grid-cols-2 items-center gap-4 lg:grid-cols-12 lg:gap-8">
+          <div ref={devarahaImgRef} className="relative mx-auto w-full max-w-28 lg:max-w-xs lg:col-span-4">
             <img
               src="/assets/baba-bg.png"
               alt=""
               aria-hidden="true"
-              className="pointer-events-none absolute -inset-10 h-[calc(100%+5rem)] w-[calc(100%+5rem)] max-w-none object-contain opacity-50"
+              className="pointer-events-none absolute -inset-4 h-[calc(100%+2rem)] w-[calc(100%+2rem)] max-w-none object-contain opacity-50 lg:-inset-10 lg:h-[calc(100%+5rem)] lg:w-[calc(100%+5rem)]"
             />
             <div
               className="relative aspect-4/5 w-full overflow-hidden shadow-lg"
@@ -110,14 +110,14 @@ export default function GuruParichay() {
             </div>
           </div>
 
-          <div ref={devarahaTextRef} className="text-center lg:col-span-5 lg:text-left">
-            <span className="font-body text-xs font-semibold uppercase tracking-widest text-saffron-500">
+          <div ref={devarahaTextRef} className="lg:col-span-5 lg:text-left">
+            <span className="font-body text-[10px] font-semibold uppercase tracking-widest text-saffron-500 lg:text-xs">
               &mdash; Sant Parichay
             </span>
-            <h3 className="mt-2 font-heading text-3xl font-semibold leading-tight text-saffron-900 md:text-4xl">
+            <h3 className="mt-2 font-heading text-lg font-semibold leading-tight text-saffron-900 lg:text-4xl">
               Yogiraj Shri Devraha Baba
             </h3>
-            <p className="mt-4 font-body text-base leading-relaxed text-saffron-700/90">
+            <p className="mt-2 font-body text-xs leading-relaxed text-saffron-700/90 lg:mt-4 lg:text-base">
               Yogiraj Shri Devraha Baba was a great Siddha Yogi saint of
               India, renowned as the &quot;ageless Yogi.&quot; He spent his
               early years on a machan by the Sarayu river in Deoria, Uttar
@@ -129,14 +129,14 @@ export default function GuruParichay() {
 
             <button
               type="button"
-              className="mt-6 inline-flex items-center gap-2 rounded-full bg-saffron-600 px-7 py-3 font-body text-sm font-medium text-white transition-colors hover:bg-saffron-700"
+              className="mt-3 inline-flex items-center gap-1.5 rounded-full bg-saffron-600 px-4 py-2 font-body text-xs font-medium text-white transition-colors hover:bg-saffron-700 lg:mt-6 lg:gap-2 lg:px-7 lg:py-3 lg:text-sm"
             >
               Discover More
               <ArrowIcon />
             </button>
           </div>
 
-          <div className="mx-auto flex w-full max-w-xs flex-col justify-center rounded-2xl border border-gold-200 bg-gold-50/60 p-6 lg:col-span-3 lg:max-w-none">
+          <div className="hidden lg:flex mx-auto w-full max-w-xs flex-col justify-center rounded-2xl border border-gold-200 bg-gold-50/60 p-6 lg:col-span-3 lg:max-w-none">
             <span className="font-heading text-3xl leading-none text-saffron-400">&#10098;</span>
             <p className="mt-2 font-heading text-base italic leading-relaxed text-saffron-800">
               Sant ka sharir to chala jata hai, par unki urja hamesha rehti
@@ -148,8 +148,8 @@ export default function GuruParichay() {
         </div>
 
         {/* Guruji */}
-        <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-8">
-          <div className="order-3 mx-auto flex w-full max-w-xs flex-col justify-center rounded-2xl border border-gold-200 bg-gold-50/60 p-6 lg:order-1 lg:col-span-3 lg:max-w-none">
+        <div className="grid grid-cols-2 items-center gap-4 lg:grid-cols-12 lg:gap-8">
+          <div className="hidden order-3 lg:order-1 lg:flex mx-auto w-full max-w-xs flex-col justify-center rounded-2xl border border-gold-200 bg-gold-50/60 p-6 lg:col-span-3 lg:max-w-none">
             <span className="font-heading text-3xl leading-none text-saffron-400">&#10098;</span>
             <p className="mt-2 font-heading text-base italic leading-relaxed text-saffron-800">
               Guru ki kripa se hi jeevan mein sacchi shanti aur disha milti
@@ -159,40 +159,40 @@ export default function GuruParichay() {
             <span className="mt-3 font-body text-xs text-saffron-500">&mdash; Guruji</span>
           </div>
 
-          <div ref={gurujiTextRef} className="order-2 text-center lg:col-span-5 lg:text-left">
-            <span className="font-body text-xs font-semibold uppercase tracking-widest text-saffron-500">
+          <div ref={gurujiTextRef} className="order-1 lg:order-2 lg:col-span-5 lg:text-left">
+            <span className="font-body text-[10px] font-semibold uppercase tracking-widest text-saffron-500 lg:text-xs">
               &mdash; Sant Parichay
             </span>
-            <h3 className="mt-2 font-heading text-3xl font-semibold leading-tight text-saffron-900 md:text-4xl">
+            <h3 className="mt-2 font-heading text-lg font-semibold leading-tight text-saffron-900 lg:text-4xl">
               Guru Parichay
             </h3>
-            <p className="mt-4 font-body text-base leading-relaxed text-saffron-700/90">
+            <p className="mt-2 font-body text-xs leading-relaxed text-saffron-700/90 lg:mt-4 lg:text-base">
               Guruji ne apna jeevan Hanuman bhakti, satsang aur samaj seva ko
               samarpit kiya hai. Varshon ki sadhna aur anubhav ke madhyam se
               unhone hazaaron shraddhaluon ko dharm ke path par agrasar kiya
               hai. Unka jeevan tyaag, karuna aur bhakti ka jeeta jaagta
               udaharan hai.
             </p>
-            <p className="mt-3 font-body text-base leading-relaxed text-saffron-700/90">
+            <p className="mt-2 font-body text-xs leading-relaxed text-saffron-700/90 lg:mt-3 lg:text-base">
               Aaj bhi wo desh-videsh mein satsang, pravachan aur yatra ke
               madhyam se logon tak Hanuman ji ka ashirwad pahunchate hain.
             </p>
 
             <button
               type="button"
-              className="mt-6 inline-flex items-center gap-2 rounded-full bg-saffron-600 px-7 py-3 font-body text-sm font-medium text-white transition-colors hover:bg-saffron-700"
+              className="mt-3 inline-flex items-center gap-1.5 rounded-full bg-saffron-600 px-4 py-2 font-body text-xs font-medium text-white transition-colors hover:bg-saffron-700 lg:mt-6 lg:gap-2 lg:px-7 lg:py-3 lg:text-sm"
             >
               Discover More
               <ArrowIcon />
             </button>
           </div>
 
-          <div ref={gurujiImgRef} className="relative order-1 mx-auto w-full max-w-xs lg:order-3 lg:col-span-4">
+          <div ref={gurujiImgRef} className="relative order-2 lg:order-3 mx-auto w-full max-w-28 lg:max-w-xs lg:col-span-4">
             <img
               src="/assets/baba-2bg.png"
               alt=""
               aria-hidden="true"
-              className="pointer-events-none absolute -inset-10 h-[calc(100%+5rem)] w-[calc(100%+5rem)] max-w-none object-contain"
+              className="pointer-events-none absolute -inset-4 h-[calc(100%+2rem)] w-[calc(100%+2rem)] max-w-none object-contain lg:-inset-10 lg:h-[calc(100%+5rem)] lg:w-[calc(100%+5rem)]"
             />
             <div
               className="relative aspect-4/5 w-full overflow-hidden shadow-lg"
