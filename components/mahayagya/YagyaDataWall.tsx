@@ -96,21 +96,21 @@ export default function YagyaDataWall() {
     <section
       ref={sectionRef}
       id="yagya-list"
-      className="w-full bg-linear-to-b from-saffron-50 to-white py-14 md:py-20"
+      className="w-full bg-linear-to-b from-[#1a0a04] via-[#2a1006] to-[#1a0a04] py-14 md:py-20"
     >
       <Container>
         <div className="text-center">
-          <h2 className="font-heading text-3xl font-semibold text-saffron-800 md:text-5xl">
+          <h2 className="font-heading text-3xl font-semibold text-gold-100 md:text-5xl">
             Yagya Yatra &mdash; 2005 se Ab Tak
           </h2>
-          <p className="mt-2 font-body text-saffron-700/80">
+          <p className="mt-2 font-body text-saffron-100/70">
             Saal ke hisaab se dekhiye, Guruji ke sankalp ki poori yatra
           </p>
         </div>
 
         <div className="mt-8 lg:flex lg:items-start lg:gap-10">
           <div className="hidden shrink-0 lg:sticky lg:top-24 lg:block lg:w-64">
-            <p className="mb-3 text-center font-body text-xs font-semibold uppercase tracking-widest text-saffron-500">
+            <p className="mb-3 text-center font-body text-xs font-semibold uppercase tracking-widest text-gold-300/80">
               Rajya se Filter Karein
             </p>
             <IndiaMap
@@ -121,7 +121,7 @@ export default function YagyaDataWall() {
           </div>
 
           <div className="min-w-0 flex-1">
-            <div className="sticky top-16 z-30 -mx-4 overflow-x-auto bg-linear-to-b from-white via-white to-transparent px-4 py-3 no-scrollbar">
+            <div className="sticky top-16 z-30 -mx-4 overflow-x-auto bg-linear-to-b from-[#1a0a04] via-[#1a0a04] to-transparent px-4 py-3 no-scrollbar">
               <div className="flex w-max items-center gap-2">
                 <button
                   type="button"
@@ -129,7 +129,7 @@ export default function YagyaDataWall() {
                   className={`shrink-0 rounded-full px-4 py-1.5 font-body text-sm font-medium transition-colors ${
                     selectedYear === "All"
                       ? "bg-saffron-600 text-white"
-                      : "border border-gold-200 text-saffron-700 hover:bg-saffron-50"
+                      : "border border-gold-200/30 text-gold-200 hover:bg-white/5"
                   }`}
                 >
                   All
@@ -142,7 +142,7 @@ export default function YagyaDataWall() {
                     className={`shrink-0 rounded-full px-4 py-1.5 font-body text-sm font-medium transition-colors ${
                       selectedYear === year
                         ? "bg-saffron-600 text-white"
-                        : "border border-gold-200 text-saffron-700 hover:bg-saffron-50"
+                        : "border border-gold-200/30 text-gold-200 hover:bg-white/5"
                     }`}
                   >
                     {year}
@@ -154,7 +154,7 @@ export default function YagyaDataWall() {
             <div ref={gridWrapperRef} className="relative mt-6 lg:pl-8">
               <div
                 aria-hidden="true"
-                className="absolute -left-1 top-0 bottom-0 hidden w-px bg-gold-200/50 lg:block"
+                className="absolute -left-1 top-0 bottom-0 hidden w-px bg-gold-200/20 lg:block"
               >
                 <div
                   ref={lineFillRef}

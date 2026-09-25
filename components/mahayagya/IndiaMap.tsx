@@ -36,7 +36,7 @@ export default function IndiaMap({
           const isHovered = hovered === code;
 
           if (!isActive) {
-            return <path key={p.id} d={p.d} fill="#f3da8c" fillOpacity={0.25} stroke="#fff" strokeWidth={0.6} />;
+            return <path key={p.id} d={p.d} fill="#f3da8c" fillOpacity={0.12} stroke="#f3da8c" strokeOpacity={0.25} strokeWidth={0.6} />;
           }
 
           return (
@@ -48,8 +48,8 @@ export default function IndiaMap({
               onMouseLeave={() => setHovered(null)}
               className="cursor-pointer transition-colors duration-200"
               fill={isSelected || isHovered ? "#ea560c" : "#f97316"}
-              fillOpacity={isSelected ? 1 : isHovered ? 0.9 : 0.75}
-              stroke="#fff"
+              fillOpacity={isSelected ? 1 : isHovered ? 0.9 : 0.8}
+              stroke="#1a0a04"
               strokeWidth={0.8}
             />
           );
@@ -57,11 +57,11 @@ export default function IndiaMap({
       </svg>
 
       <div className="mt-4 text-center">
-        <p className="font-heading text-lg font-semibold text-saffron-800">
+        <p className="font-heading text-lg font-semibold text-gold-100">
           {displayName}
         </p>
         {displayCount !== null && (
-          <p className="font-body text-sm text-saffron-600">
+          <p className="font-body text-sm text-saffron-300">
             {displayCount} Yagya
           </p>
         )}
@@ -69,7 +69,7 @@ export default function IndiaMap({
           <button
             type="button"
             onClick={() => onSelect("All")}
-            className="mt-1 font-body text-xs font-medium text-saffron-500 underline hover:text-saffron-700"
+            className="mt-1 font-body text-xs font-medium text-gold-300 underline hover:text-gold-100"
           >
             Sabhi Rajya dikhayein
           </button>
