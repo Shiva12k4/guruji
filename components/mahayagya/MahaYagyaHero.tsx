@@ -54,9 +54,14 @@ export default function MahaYagyaHero() {
       className="relative w-full overflow-hidden bg-saffron-950"
     >
       <img
+        src="/assets/yagya-hero-banner-mobile.png"
+        alt="Guruji ka Sankalp - Shri Maruti Mahayagya"
+        className="w-full h-auto object-contain md:hidden"
+      />
+      <img
         src="/assets/yagya-hero-banner.png"
         alt="Guruji ka Sankalp - Shri Maruti Mahayagya"
-        className="w-full h-auto object-contain"
+        className="hidden w-full h-auto object-contain md:block"
       />
 
       {/*
