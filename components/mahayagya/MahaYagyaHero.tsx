@@ -75,19 +75,19 @@ export default function MahaYagyaHero() {
         <Container>
           <div
             ref={statsRef}
-            className="flex w-full max-w-2xl mx-auto flex-col gap-8 sm:flex-row sm:justify-between"
+            className="mx-auto flex w-full max-w-2xl flex-row justify-between gap-2 sm:gap-8"
           >
             {STATS.map((stat, i) => (
-              <div key={stat.label} className="flex flex-col items-center">
+              <div key={stat.label} className="flex flex-1 flex-col items-center text-center">
                 <span
                   ref={(el) => {
                     counterRefs.current[i] = el;
                   }}
-                  className="font-heading text-4xl font-semibold text-gold-100 md:text-5xl"
+                  className="font-body text-2xl font-bold text-gold-100 sm:text-4xl md:text-5xl"
                 >
                   0{stat.suffix}
                 </span>
-                <span className="mt-2 font-body text-sm text-saffron-100/80">
+                <span className="mt-1 font-body text-[11px] leading-tight text-saffron-100/80 sm:mt-2 sm:text-sm">
                   {stat.label}
                 </span>
               </div>
