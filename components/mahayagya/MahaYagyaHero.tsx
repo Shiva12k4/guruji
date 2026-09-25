@@ -4,7 +4,6 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Container from "../Container";
-import FlameIcon from "./FlameIcon";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -67,8 +66,6 @@ export default function MahaYagyaHero() {
             "radial-gradient(circle, rgba(255,180,90,0.55) 0%, rgba(255,120,30,0.25) 55%, rgba(255,120,30,0) 75%)",
         }}
       />
-
-      <FlameIcon className="animate-flame pointer-events-none absolute left-1/2 top-[16%] h-16 w-16 -translate-x-1/2 opacity-90 md:h-20 md:w-20" />
 
       <Container className="relative z-10 flex flex-col items-center px-6 py-20 text-center">
         <span className="font-body text-xs font-semibold uppercase tracking-[0.25em] text-gold-200/80">
