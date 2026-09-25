@@ -3,10 +3,10 @@
 import { useEffect, useState } from "react";
 
 const LINKS = [
-  { label: "Home", href: "#home" },
-  { label: "About Us", href: "#guru-parichay" },
-  { label: "Maha Yagya", href: "#" },
-  { label: "Videos", href: "#videos" },
+  { label: "Home", href: "/#home" },
+  { label: "About Us", href: "/#guru-parichay" },
+  { label: "Maha Yagya", href: "/maha-yagya" },
+  { label: "Videos", href: "/#videos" },
 ];
 
 export default function Navbar() {
@@ -29,7 +29,7 @@ export default function Navbar() {
       }`}
     >
       <nav className="mx-auto flex max-w-330 items-center justify-between px-4 py-4 sm:px-6">
-        <a href="#home" className="flex items-center gap-2">
+        <a href="/" className="flex items-center gap-2">
           <span
             className={`flex h-9 w-9 items-center justify-center rounded-full font-heading text-lg font-semibold transition-colors ${
               scrolled ? "bg-saffron-600 text-white" : "bg-white/15 text-gold-100"
@@ -70,7 +70,7 @@ export default function Navbar() {
 
         <div className="hidden md:block">
           <a
-            href="#donate"
+            href="/#donate"
             className="rounded-full bg-saffron-600 px-6 py-2.5 font-body text-sm font-semibold text-white shadow-md transition-all hover:-translate-y-0.5 hover:bg-saffron-700 hover:shadow-lg"
           >
             Donate Now
@@ -96,7 +96,7 @@ export default function Navbar() {
 
       {open && (
         <ul className="md:hidden flex flex-col items-center gap-5 bg-saffron-900/95 backdrop-blur-sm py-8">
-          {[...LINKS, { label: "Donation", href: "#donate" }].map((link) => (
+          {[...LINKS, { label: "Donation", href: "/#donate" }].map((link) => (
             <li key={link.label}>
               <a
                 href={link.href}
