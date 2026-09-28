@@ -12,9 +12,12 @@ export default function ContactUs() {
   };
 
   return (
-    <section id="contact" className="w-full bg-white py-7 md:py-10">
+    <section id="contact" className="w-full bg-linear-to-b from-gold-50 via-saffron-50/40 to-white py-7 md:py-10">
       <Container>
         <div className="text-center">
+          <span className="mx-auto mb-3 flex h-10 w-10 items-center justify-center rounded-full bg-saffron-100 font-heading text-lg text-saffron-600">
+            &#2384;
+          </span>
           <span className="font-body text-xs font-semibold uppercase tracking-widest text-saffron-500">
             Contact
           </span>
