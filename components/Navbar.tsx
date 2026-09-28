@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { Menu, X } from "lucide-react";
 
 const LINKS = [
   { label: "Home", href: "/#home" },
@@ -84,13 +85,7 @@ export default function Navbar() {
           aria-label="Toggle menu"
           aria-expanded={open}
         >
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            {open ? (
-              <path d="M6 6l12 12M18 6L6 18" strokeLinecap="round" />
-            ) : (
-              <path d="M4 7h16M4 12h16M4 17h16" strokeLinecap="round" />
-            )}
-          </svg>
+          {open ? <X size={26} /> : <Menu size={26} />}
         </button>
       </nav>
 

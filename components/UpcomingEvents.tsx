@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ChevronLeft, ChevronRight, MapPin } from "lucide-react";
 import Container from "./Container";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -194,9 +195,7 @@ export default function UpcomingEvents() {
             aria-label="Previous event"
             className="absolute left-1 top-1/2 z-30 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full border border-gold-200 bg-white text-saffron-700 shadow-md transition-colors hover:bg-saffron-50 sm:-left-4 sm:h-11 sm:w-11"
           >
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="h-4 w-4 sm:h-5 sm:w-5">
-              <path d="M15 6l-6 6 6 6" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
+            <ChevronLeft className="h-4 w-4 sm:h-5 sm:w-5" />
           </button>
 
           <button
@@ -205,9 +204,7 @@ export default function UpcomingEvents() {
             aria-label="Next event"
             className="absolute right-1 top-1/2 z-30 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full border border-gold-200 bg-white text-saffron-700 shadow-md transition-colors hover:bg-saffron-50 sm:-right-4 sm:h-11 sm:w-11"
           >
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="h-4 w-4 sm:h-5 sm:w-5">
-              <path d="M9 6l6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
+            <ChevronRight className="h-4 w-4 sm:h-5 sm:w-5" />
           </button>
 
           <div ref={viewportRef} className="overflow-hidden py-6">
@@ -257,9 +254,7 @@ export default function UpcomingEvents() {
 
                     <div className="p-5">
                       <span className="flex items-center gap-1 font-body text-xs font-semibold uppercase tracking-wide text-saffron-600">
-                        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
-                          <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5z" />
-                        </svg>
+                        <MapPin size={12} />
                         {event.city}
                       </span>
                       <h3 className="mt-1 font-heading text-lg font-semibold text-saffron-900">

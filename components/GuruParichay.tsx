@@ -3,19 +3,12 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ArrowRight } from "lucide-react";
 import Container from "./Container";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const BLOB = "63% 37% 54% 46% / 55% 48% 52% 45%";
-
-function ArrowIcon() {
-  return (
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-      <path d="M5 12h14M13 6l6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  );
-}
 
 export default function GuruParichay() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -152,7 +145,7 @@ export default function GuruParichay() {
               className="mt-3 inline-flex items-center gap-1.5 rounded-full bg-saffron-600 px-4 py-2 font-body text-xs font-medium text-white transition-colors hover:bg-saffron-700 lg:mt-6 lg:gap-2 lg:px-7 lg:py-3 lg:text-sm"
             >
               Discover More
-              <ArrowIcon />
+              <ArrowRight size={16} />
             </button>
           </div>
 
@@ -223,7 +216,7 @@ export default function GuruParichay() {
               className="mt-3 inline-flex items-center gap-1.5 rounded-full bg-saffron-600 px-4 py-2 font-body text-xs font-medium text-white transition-colors hover:bg-saffron-700 lg:mt-6 lg:gap-2 lg:px-7 lg:py-3 lg:text-sm"
             >
               Discover More
-              <ArrowIcon />
+              <ArrowRight size={16} />
             </button>
           </div>
 

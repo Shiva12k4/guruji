@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import Container from "./Container";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -139,9 +140,7 @@ export default function VideoSlider() {
                 aria-label="Previous video"
                 className="absolute left-0 top-1/2 z-10 flex h-5 w-5 -translate-y-1/2 items-center justify-center rounded-full border border-gold-200 bg-white text-saffron-700 shadow-md transition-colors hover:bg-saffron-50 sm:-left-5 sm:h-10 sm:w-10"
               >
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="h-2.5 w-2.5 sm:h-4.5 sm:w-4.5">
-                  <path d="M15 6l-6 6 6 6" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
+                <ChevronLeft className="h-2.5 w-2.5 sm:h-4.5 sm:w-4.5" />
               </button>
 
               <button
@@ -150,9 +149,7 @@ export default function VideoSlider() {
                 aria-label="Next video"
                 className="absolute right-0 top-1/2 z-10 flex h-5 w-5 -translate-y-1/2 items-center justify-center rounded-full border border-gold-200 bg-white text-saffron-700 shadow-md transition-colors hover:bg-saffron-50 sm:-right-5 sm:h-10 sm:w-10"
               >
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="h-2.5 w-2.5 sm:h-4.5 sm:w-4.5">
-                  <path d="M9 6l6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
+                <ChevronRight className="h-2.5 w-2.5 sm:h-4.5 sm:w-4.5" />
               </button>
             </>
           )}
@@ -220,9 +217,7 @@ export default function VideoSlider() {
             aria-label="Close video"
             className="fixed right-4 top-4 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-white/20"
           >
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M6 6l12 12M18 6L6 18" strokeLinecap="round" />
-            </svg>
+            <X size={22} />
           </button>
 
           <video

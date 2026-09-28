@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { MapPin, Phone, Mail, Check } from "lucide-react";
 import Container from "./Container";
 
 export default function ContactUs() {
@@ -46,9 +47,7 @@ export default function ContactUs() {
             <ul className="mt-8 space-y-5 font-body text-sm">
               <li className="flex items-start gap-3">
                 <span className="flex h-9 w-9 flex-none items-center justify-center rounded-full bg-white/15">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5z" />
-                  </svg>
+                  <MapPin size={16} />
                 </span>
                 <span className="pt-1.5">
                   Guruji Ashram, Mandir Marg,
@@ -58,17 +57,13 @@ export default function ContactUs() {
               </li>
               <li className="flex items-center gap-3">
                 <span className="flex h-9 w-9 flex-none items-center justify-center rounded-full bg-white/15">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1.1-.2 1.2.4 2.5.6 3.8.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.4 21 3 13.6 3 4.7c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.6.6 3.8.1.4 0 .8-.3 1.1L6.6 10.8z" />
-                  </svg>
+                  <Phone size={16} />
                 </span>
                 <span>+91 00000 00000</span>
               </li>
               <li className="flex items-center gap-3">
                 <span className="flex h-9 w-9 flex-none items-center justify-center rounded-full bg-white/15">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M2 5.5A1.5 1.5 0 0 1 3.5 4h17A1.5 1.5 0 0 1 22 5.5v13a1.5 1.5 0 0 1-1.5 1.5h-17A1.5 1.5 0 0 1 2 18.5v-13zm2.2.5 7.3 5.6a1 1 0 0 0 1 0L19.8 6H4.2z" />
-                  </svg>
+                  <Mail size={16} />
                 </span>
                 <span>info@example.com</span>
               </li>
@@ -79,9 +74,7 @@ export default function ContactUs() {
             {submitted ? (
               <div className="flex h-full flex-col items-center justify-center py-16 text-center">
                 <div className="flex h-14 w-14 items-center justify-center rounded-full bg-saffron-100 text-saffron-600">
-                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M20 6 9 17l-5-5" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
+                  <Check size={26} />
                 </div>
                 <h3 className="mt-4 font-heading text-xl font-semibold text-saffron-800">
                   Dhanyawad!

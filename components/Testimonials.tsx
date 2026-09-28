@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { User, Star } from "lucide-react";
 import Container from "./Container";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -55,31 +56,11 @@ const TESTIMONIALS = [
   },
 ];
 
-function DevoteeIcon() {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" className="h-5 w-5">
-      <path
-        d="M12 3c-1.5 2-3 2.8-3 4.8a3 3 0 0 0 6 0c0-2-1.5-2.8-3-4.8Z"
-        fill="white"
-      />
-      <path
-        d="M6.5 21c.3-3.6 2.4-6 5.5-6s5.2 2.4 5.5 6"
-        stroke="white"
-        strokeWidth="1.6"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
-
 function StarRow() {
   return (
     <div className="flex gap-0.5 text-gold-500">
       {Array.from({ length: 5 }).map((_, i) => (
-        <svg key={i} viewBox="0 0 24 24" fill="currentColor" className="h-3.5 w-3.5">
-          <path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6-4.9-4.6 6.6-.8L12 2.5z" />
-        </svg>
+        <Star key={i} size={14} fill="currentColor" strokeWidth={0} />
       ))}
     </div>
   );
@@ -171,7 +152,7 @@ export default function Testimonials() {
                 <span
                   className={`flex h-12 w-12 flex-none items-center justify-center rounded-full bg-linear-to-br shadow-md ${AVATAR_GRADIENTS[i % AVATAR_GRADIENTS.length]}`}
                 >
-                  <DevoteeIcon />
+                  <User size={20} color="white" />
                 </span>
                 <div>
                   <p className="font-heading text-base font-semibold text-saffron-900">
