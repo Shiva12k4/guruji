@@ -50,10 +50,10 @@ export default function IndiaMap({
               <path
                 key={p.id}
                 d={p.d}
-                fill="#5a3a1c"
-                fillOpacity={0.85}
-                stroke="#c99a4e"
-                strokeOpacity={0.5}
+                fill="#f3da8c"
+                fillOpacity={0.35}
+                stroke="#e5aa34"
+                strokeOpacity={0.4}
                 strokeWidth={0.7}
               />
             );
@@ -67,10 +67,10 @@ export default function IndiaMap({
               onMouseEnter={() => setHovered(code)}
               onMouseLeave={() => setHovered(null)}
               className="cursor-pointer transition-colors duration-200"
-              fill={isSelected || isHovered ? "#ff8c3d" : "#ea560c"}
+              fill={isSelected || isHovered ? "#ea560c" : "#f97316"}
               fillOpacity={isSelected ? 1 : isHovered ? 0.95 : 0.85}
-              stroke="#f3da8c"
-              strokeOpacity={isSelected || isHovered ? 0.8 : 0.4}
+              stroke="#ffffff"
+              strokeOpacity={isSelected || isHovered ? 1 : 0.7}
               strokeWidth={0.9}
               filter={isSelected || isHovered ? "url(#state-glow)" : undefined}
             />
@@ -79,11 +79,11 @@ export default function IndiaMap({
       </svg>
 
       <div className="mt-4 text-center">
-        <p className="font-heading text-lg font-semibold text-gold-100">
+        <p className="font-heading text-lg font-semibold text-saffron-800">
           {displayName}
         </p>
         {displayCount !== null && (
-          <p className="font-body text-sm text-saffron-300">
+          <p className="font-body text-sm text-saffron-600">
             {displayCount} Yagya
           </p>
         )}
@@ -91,7 +91,7 @@ export default function IndiaMap({
           <button
             type="button"
             onClick={() => onSelect("All")}
-            className="mt-1 font-body text-xs font-medium text-gold-300 underline hover:text-gold-100"
+            className="mt-1 font-body text-xs font-medium text-saffron-500 underline hover:text-saffron-700"
           >
             Sabhi Rajya dikhayein
           </button>
