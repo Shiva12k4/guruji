@@ -7,13 +7,13 @@ import Container from "./Container";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const AVATAR_COLORS = [
-  "bg-saffron-600",
-  "bg-gold-600",
-  "bg-saffron-700",
-  "bg-gold-500",
-  "bg-saffron-500",
-  "bg-gold-700",
+const AVATAR_GRADIENTS = [
+  "from-saffron-500 to-gold-500",
+  "from-gold-500 to-saffron-600",
+  "from-saffron-600 to-gold-400",
+  "from-gold-600 to-saffron-500",
+  "from-saffron-500 to-gold-600",
+  "from-gold-500 to-saffron-700",
 ];
 
 const TESTIMONIALS = [
@@ -55,13 +55,34 @@ const TESTIMONIALS = [
   },
 ];
 
-function initials(name: string) {
-  return name
-    .split(" ")
-    .slice(0, 2)
-    .map((w) => w[0])
-    .join("")
-    .toUpperCase();
+function DevoteeIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" className="h-5 w-5">
+      <path
+        d="M12 3c-1.5 2-3 2.8-3 4.8a3 3 0 0 0 6 0c0-2-1.5-2.8-3-4.8Z"
+        fill="white"
+      />
+      <path
+        d="M6.5 21c.3-3.6 2.4-6 5.5-6s5.2 2.4 5.5 6"
+        stroke="white"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+function StarRow() {
+  return (
+    <div className="flex gap-0.5 text-gold-500">
+      {Array.from({ length: 5 }).map((_, i) => (
+        <svg key={i} viewBox="0 0 24 24" fill="currentColor" className="h-3.5 w-3.5">
+          <path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6-4.9-4.6 6.6-.8L12 2.5z" />
+        </svg>
+      ))}
+    </div>
+  );
 }
 
 export default function Testimonials() {
@@ -137,26 +158,23 @@ export default function Testimonials() {
           {TESTIMONIALS.map((t, i) => (
             <div
               key={t.name}
-              className="flex flex-col rounded-2xl border border-gold-200 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+              className="group relative flex flex-col overflow-hidden rounded-2xl border border-gold-200 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-saffron-300 hover:shadow-xl"
             >
-              <span className="font-heading text-3xl leading-none text-saffron-400">
+              <span
+                aria-hidden="true"
+                className="pointer-events-none absolute -right-3 -top-6 select-none font-heading text-8xl leading-none text-saffron-50"
+              >
                 &#10098;
               </span>
-              <p className="mt-2 flex-1 font-body text-sm leading-relaxed text-saffron-700/90">
-                {t.quote}
-                <span className="text-xl leading-none text-saffron-400">
-                  &#10099;
-                </span>
-              </p>
 
-              <div className="mt-5 flex items-center gap-3 border-t border-gold-100 pt-4">
+              <div className="relative flex items-center gap-3">
                 <span
-                  className={`flex h-11 w-11 flex-none items-center justify-center rounded-full font-body text-sm font-semibold text-white ${AVATAR_COLORS[i % AVATAR_COLORS.length]}`}
+                  className={`flex h-12 w-12 flex-none items-center justify-center rounded-full bg-linear-to-br shadow-md ${AVATAR_GRADIENTS[i % AVATAR_GRADIENTS.length]}`}
                 >
-                  {initials(t.name)}
+                  <DevoteeIcon />
                 </span>
                 <div>
-                  <p className="font-heading text-sm font-semibold text-saffron-900">
+                  <p className="font-heading text-base font-semibold text-saffron-900">
                     {t.name}
                   </p>
                   <p className="font-body text-xs text-saffron-600">
@@ -164,6 +182,14 @@ export default function Testimonials() {
                   </p>
                 </div>
               </div>
+
+              <div className="relative mt-3">
+                <StarRow />
+              </div>
+
+              <p className="relative mt-4 flex-1 font-body text-sm leading-relaxed text-saffron-700/90">
+                &#8220;{t.quote}&#8221;
+              </p>
             </div>
           ))}
         </div>
