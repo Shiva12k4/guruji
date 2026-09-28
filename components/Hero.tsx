@@ -190,7 +190,7 @@ export default function Hero() {
         ref={rayBeamRef}
         src="/assets/beam.png"
         alt=""
-        className="absolute left-[44%] top-[46%] h-[13%] w-auto -translate-x-1/2 mix-blend-screen"
+        className="absolute left-[calc(50%-9.33vh)] top-[46%] h-[13%] w-auto -translate-x-1/2 mix-blend-screen"
         aria-hidden="true"
       />
 
