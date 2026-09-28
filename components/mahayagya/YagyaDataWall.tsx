@@ -6,7 +6,9 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Container from "../Container";
 import YagyaCard from "./YagyaCard";
 import IndiaMap from "./IndiaMap";
-import { mahaYagyaData, type StateCode } from "@/constants/mahaYagyaData";
+import { mahaYagyaData, STATE_NAMES, type StateCode } from "@/constants/mahaYagyaData";
+
+const STATE_OPTIONS = Object.entries(STATE_NAMES) as [StateCode, string][];
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -106,6 +108,25 @@ export default function YagyaDataWall() {
           <p className="mt-2 font-body text-saffron-100/70">
             Saal ke hisaab se dekhiye, Guruji ke sankalp ki poori yatra
           </p>
+        </div>
+
+        <div className="mt-6 lg:hidden">
+          <label htmlFor="state-filter-mobile" className="mb-2 block text-center font-body text-xs font-semibold uppercase tracking-widest text-gold-300/80">
+            Rajya se Filter Karein
+          </label>
+          <select
+            id="state-filter-mobile"
+            value={selectedState}
+            onChange={(e) => setSelectedState(e.target.value as StateCode | "All")}
+            className="w-full rounded-full border border-gold-700/40 bg-[#2b1710] px-4 py-2.5 font-body text-sm text-gold-100 outline-none focus:border-saffron-500"
+          >
+            <option value="All">Sabhi Rajya</option>
+            {STATE_OPTIONS.map(([code, name]) => (
+              <option key={code} value={code}>
+                {name} ({stateCounts[code] ?? 0})
+              </option>
+            ))}
+          </select>
         </div>
 
         <div className="mt-8 lg:flex lg:items-start lg:gap-10">

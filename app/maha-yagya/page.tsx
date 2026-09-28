@@ -3,6 +3,7 @@ import Navbar from "@/components/Navbar";
 import ScrollRefresh from "@/components/ScrollRefresh";
 import MahaYagyaHero from "@/components/mahayagya/MahaYagyaHero";
 import YagyaDataWall from "@/components/mahayagya/YagyaDataWall";
+import DonationCTA from "@/components/DonationCTA";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
@@ -18,6 +19,7 @@ export default function MahaYagyaPage() {
       <Navbar />
       <MahaYagyaHero />
       <YagyaDataWall />
+      <DonationCTA />
       <Footer />
     </main>
   );

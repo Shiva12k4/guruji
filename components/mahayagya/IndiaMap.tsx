@@ -50,11 +50,11 @@ export default function IndiaMap({
               <path
                 key={p.id}
                 d={p.d}
-                fill="#3a2410"
-                fillOpacity={0.6}
-                stroke="#a67c3d"
-                strokeOpacity={0.25}
-                strokeWidth={0.6}
+                fill="#5a3a1c"
+                fillOpacity={0.85}
+                stroke="#c99a4e"
+                strokeOpacity={0.5}
+                strokeWidth={0.7}
               />
             );
           }
