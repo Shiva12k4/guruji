@@ -98,7 +98,7 @@ export default function YagyaDataWall() {
     <section
       ref={sectionRef}
       id="yagya-list"
-      className="w-full bg-linear-to-b from-[#1a0a04] via-[#2a1006] to-[#1a0a04] py-14 md:py-20"
+      className="w-full bg-linear-to-b from-[#2a1408] via-[#3d2410] to-[#2a1408] py-14 md:py-20"
     >
       <Container>
         <div className="text-center">
@@ -118,7 +118,7 @@ export default function YagyaDataWall() {
             id="state-filter-mobile"
             value={selectedState}
             onChange={(e) => setSelectedState(e.target.value as StateCode | "All")}
-            className="w-full rounded-full border border-gold-700/40 bg-[#2b1710] px-4 py-2.5 font-body text-sm text-gold-100 outline-none focus:border-saffron-500"
+            className="w-full rounded-full border border-gold-700/40 bg-[#3d2410] px-4 py-2.5 font-body text-sm text-gold-100 outline-none focus:border-saffron-500"
           >
             <option value="All">Sabhi Rajya</option>
             {STATE_OPTIONS.map(([code, name]) => (
@@ -142,7 +142,7 @@ export default function YagyaDataWall() {
           </div>
 
           <div className="min-w-0 flex-1">
-            <div className="sticky top-16 z-30 -mx-4 overflow-x-auto bg-linear-to-b from-[#1a0a04] via-[#1a0a04] to-transparent px-4 py-3 no-scrollbar">
+            <div className="sticky top-16 z-30 -mx-4 overflow-x-auto bg-linear-to-b from-[#2a1408] via-[#2a1408] to-transparent px-4 py-3 no-scrollbar">
               <div className="flex w-max items-center gap-2">
                 <button
                   type="button"

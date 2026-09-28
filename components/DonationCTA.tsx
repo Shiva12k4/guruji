@@ -73,7 +73,7 @@ export default function DonationCTA() {
         className="absolute inset-0"
         style={{
           background:
-            "linear-gradient(to bottom, rgba(124,45,18,0.88) 0%, rgba(58,21,8,0.9) 55%, rgba(26,10,4,0.94) 100%)",
+            "linear-gradient(to bottom, rgba(124,45,18,0.85) 0%, rgba(74,44,20,0.85) 55%, rgba(42,20,8,0.88) 100%)",
         }}
       />
 
