@@ -97,7 +97,7 @@ export default function UpcomingEvents() {
   const viewportRef = useRef<HTMLDivElement>(null);
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
 
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(() => Math.floor(EVENTS.length / 2));
   const [offset, setOffset] = useState(0);
 
   const updateOffset = (index: number) => {
