@@ -164,6 +164,7 @@ export default function Hero() {
         ref={hanumanRef}
         src="/assets/hanuman-cutout.webp"
         alt="Hanuman ji"
+        fetchPriority="high"
         className="absolute left-1/2 top-[16%] h-[70%] -translate-x-1/2 object-contain"
       />
 
