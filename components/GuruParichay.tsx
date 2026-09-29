@@ -187,14 +187,11 @@ export default function GuruParichay() {
                 aria-hidden="true"
                 className="pointer-events-none absolute -inset-3 h-[calc(100%+1.5rem)] w-[calc(100%+1.5rem)] max-w-none object-contain"
               />
-              <div
-                className="relative aspect-4/5 w-full overflow-hidden shadow-lg"
-                style={{ borderRadius: BLOB }}
-              >
+              <div className="relative aspect-square w-full overflow-hidden rounded-full border-4 border-white shadow-lg">
                 <img
                   src="/assets/guruji-portrait.jpg"
                   alt="Guruji"
-                  className="h-full w-full object-cover object-[center_15%]"
+                  className="h-full w-full object-cover object-[center_25%]"
                 />
               </div>
             </div>
@@ -227,14 +224,11 @@ export default function GuruParichay() {
               aria-hidden="true"
               className="pointer-events-none absolute -inset-10 h-[calc(100%+5rem)] w-[calc(100%+5rem)] max-w-none object-contain"
             />
-            <div
-              className="relative aspect-4/5 w-full overflow-hidden shadow-lg"
-              style={{ borderRadius: BLOB }}
-            >
+            <div className="relative aspect-square w-full overflow-hidden rounded-full border-4 border-white shadow-lg">
               <img
                 src="/assets/guruji-portrait.jpg"
                 alt="Guruji"
-                className="h-full w-full object-cover object-[center_15%]"
+                className="h-full w-full object-cover object-[center_25%]"
               />
             </div>
           </div>
