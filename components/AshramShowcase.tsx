@@ -52,7 +52,7 @@ export default function AshramShowcase() {
             className="relative aspect-4/3 w-full overflow-hidden rounded-2xl border border-gold-200 shadow-lg"
           >
             <img
-              src="/assets/ashram-night.jpg"
+              src="/assets/ashram-night.webp"
               alt="Shri Ram Maruti Dham Ashram, Varanasi"
               className="h-full w-full object-cover"
             />

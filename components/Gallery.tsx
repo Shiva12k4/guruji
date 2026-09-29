@@ -9,19 +9,19 @@ gsap.registerPlugin(ScrollTrigger);
 
 const PHOTOS = [
   {
-    src: "/assets/real-guruji-flowers.jpg",
+    src: "/assets/real-guruji-flowers.webp",
     span: "col-span-2 row-span-2",
     position: "object-[center_10%]",
     featured: true,
   },
-  { src: "/assets/real-hanuman-mandir.jpg", span: "", position: "object-top" },
-  { src: "/assets/real-yatra-procession.jpg", span: "", position: "object-center" },
-  { src: "/assets/real-durga-devi.jpg", span: "", position: "object-[center_15%]" },
-  { src: "/assets/real-guruji-studio.jpg", span: "", position: "object-top" },
-  { src: "/assets/real-jeep-yatra.jpg", span: "", position: "object-center" },
-  { src: "/assets/ashram-night.jpg", span: "", position: "object-bottom" },
-  { src: "/assets/real-guruji-police.jpg", span: "", position: "object-center" },
-  { src: "/assets/real-guruji-felicitation.jpg", span: "", position: "object-center" },
+  { src: "/assets/real-hanuman-mandir.webp", span: "", position: "object-top" },
+  { src: "/assets/real-yatra-procession.webp", span: "", position: "object-center" },
+  { src: "/assets/real-durga-devi.webp", span: "", position: "object-[center_15%]" },
+  { src: "/assets/real-guruji-studio.webp", span: "", position: "object-top" },
+  { src: "/assets/real-jeep-yatra.webp", span: "", position: "object-center" },
+  { src: "/assets/ashram-night.webp", span: "", position: "object-bottom" },
+  { src: "/assets/real-guruji-police.webp", span: "", position: "object-center" },
+  { src: "/assets/real-guruji-felicitation.webp", span: "", position: "object-center" },
 ];
 
 export default function Gallery() {

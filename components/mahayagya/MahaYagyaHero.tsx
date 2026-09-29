@@ -56,7 +56,7 @@ export default function MahaYagyaHero() {
     >
       <div className="relative flex min-h-[60vh] w-full items-end overflow-hidden md:min-h-[75vh]">
         <img
-          src="/assets/real-yagya-havan.jpg"
+          src="/assets/real-yagya-havan.webp"
           alt="Guruji conducting Shri Maruti Mahayagya"
           className="absolute inset-0 h-full w-full object-cover"
         />

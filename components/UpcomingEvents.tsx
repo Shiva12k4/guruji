@@ -17,7 +17,7 @@ const EVENTS = [
     city: "Delhi",
     venue: "Hanuman Mandir, Connaught Place",
     title: "Maha Rudrabhishek Puja",
-    photo: "/assets/event1.jpg",
+    photo: "/assets/event1.webp",
   },
   {
     day: "26",
@@ -27,7 +27,7 @@ const EVENTS = [
     city: "Mumbai",
     venue: "Shree Ashram Hall, Andheri",
     title: "Guruji Satsang Sabha",
-    photo: "/assets/parmarth-niketan-ashram.jpg",
+    photo: "/assets/parmarth-niketan-ashram.webp",
   },
   {
     day: "08",
@@ -37,7 +37,7 @@ const EVENTS = [
     city: "Jaipur",
     venue: "Birla Mandir Prangan",
     title: "Hanuman Chalisa Path (108 Baar)",
-    photo: "/assets/event2.jpg",
+    photo: "/assets/event2.webp",
   },
   {
     day: "22",
@@ -47,7 +47,7 @@ const EVENTS = [
     city: "Varanasi",
     venue: "Ganga Ghat, Assi Ghat",
     title: "Sandhya Aarti aur Bhajan Sandhya",
-    photo: "/assets/event3.jpg",
+    photo: "/assets/event3.webp",
   },
   {
     day: "05",
@@ -57,7 +57,7 @@ const EVENTS = [
     city: "Ayodhya",
     venue: "Ram Janmabhoomi Path",
     title: "Maha Yatra aur Darshan",
-    photo: "/assets/event4.jpg",
+    photo: "/assets/event4.webp",
   },
   {
     day: "19",
@@ -67,7 +67,7 @@ const EVENTS = [
     city: "Haridwar",
     venue: "Har Ki Pauri",
     title: "Ganga Aarti Sammelan",
-    photo: "/assets/event5.jpg",
+    photo: "/assets/event5.webp",
   },
   {
     day: "02",
@@ -77,7 +77,7 @@ const EVENTS = [
     city: "Ujjain",
     venue: "Mahakaleshwar Prangan",
     title: "Naya Varsh Ashirwad Samaroh",
-    photo: "/assets/event6.jpg",
+    photo: "/assets/event6.webp",
   },
   {
     day: "16",
@@ -87,7 +87,7 @@ const EVENTS = [
     city: "Pune",
     venue: "Shivaji Nagar Community Hall",
     title: "Satsang aur Prasad Vitran",
-    photo: "/assets/event7.jpg",
+    photo: "/assets/event7.webp",
   },
 ];
 

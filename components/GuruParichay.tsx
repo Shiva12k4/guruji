@@ -86,7 +86,7 @@ export default function GuruParichay() {
         <div className="grid grid-cols-1 items-center gap-4 lg:grid-cols-12 lg:gap-8">
           <div ref={devarahaImgRef} className="relative mx-auto hidden w-full lg:block lg:max-w-xs lg:col-span-4">
             <img
-              src="/assets/baba-bg.png"
+              src="/assets/baba-bg.webp"
               alt=""
               aria-hidden="true"
               className="pointer-events-none absolute -inset-10 h-[calc(100%+5rem)] w-[calc(100%+5rem)] max-w-none object-contain opacity-50"
@@ -96,7 +96,7 @@ export default function GuruParichay() {
               style={{ borderRadius: BLOB }}
             >
               <img
-                src="/assets/homepage-devara.png"
+                src="/assets/homepage-devara.webp"
                 alt="Yogiraj Shri Devraha Baba"
                 className="h-full w-full object-contain"
               />
@@ -113,7 +113,7 @@ export default function GuruParichay() {
 
             <div className="relative float-right ml-3 mb-1 w-24 lg:hidden">
               <img
-                src="/assets/baba-bg.png"
+                src="/assets/baba-bg.webp"
                 alt=""
                 aria-hidden="true"
                 className="pointer-events-none absolute -inset-3 h-[calc(100%+1.5rem)] w-[calc(100%+1.5rem)] max-w-none object-contain opacity-50"
@@ -123,7 +123,7 @@ export default function GuruParichay() {
                 style={{ borderRadius: BLOB }}
               >
                 <img
-                  src="/assets/homepage-devara.png"
+                  src="/assets/homepage-devara.webp"
                   alt="Yogiraj Shri Devraha Baba"
                   className="h-full w-full object-contain"
                 />
@@ -183,7 +183,7 @@ export default function GuruParichay() {
             <div className="relative float-left mr-3 mb-1 w-36 lg:hidden">
               <div className="relative aspect-square w-full overflow-hidden rounded-full border-4 border-white shadow-lg">
                 <img
-                  src="/assets/guruji-portrait.jpg"
+                  src="/assets/guruji-portrait.webp"
                   alt="Guruji"
                   className="h-full w-full object-cover object-[center_25%]"
                 />
@@ -214,7 +214,7 @@ export default function GuruParichay() {
           <div ref={gurujiImgRef} className="relative mx-auto hidden w-full lg:order-3 lg:block lg:col-span-4">
             <div className="relative aspect-square w-full overflow-hidden rounded-full border-4 border-white shadow-lg">
               <img
-                src="/assets/guruji-portrait.jpg"
+                src="/assets/guruji-portrait.webp"
                 alt="Guruji"
                 className="h-full w-full object-cover object-[center_25%]"
               />
