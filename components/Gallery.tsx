@@ -8,15 +8,20 @@ import Container from "./Container";
 gsap.registerPlugin(ScrollTrigger);
 
 const PHOTOS = [
-  { src: "/assets/real-guruji-flowers.jpg", span: "row-span-2", position: "object-[center_10%]" },
-  { src: "/assets/real-hanuman-mandir.jpg", span: "row-span-1", position: "object-top" },
-  { src: "/assets/real-yatra-procession.jpg", span: "row-span-1", position: "object-center" },
-  { src: "/assets/real-durga-devi.jpg", span: "row-span-2", position: "object-[center_15%]" },
-  { src: "/assets/real-guruji-studio.jpg", span: "row-span-2", position: "object-top" },
-  { src: "/assets/real-jeep-yatra.jpg", span: "row-span-1", position: "object-center" },
-  { src: "/assets/ashram-night.jpg", span: "row-span-1", position: "object-bottom" },
-  { src: "/assets/real-guruji-police.jpg", span: "row-span-1", position: "object-center" },
-  { src: "/assets/real-guruji-felicitation.jpg", span: "col-span-2 row-span-1", position: "object-center" },
+  {
+    src: "/assets/real-guruji-flowers.jpg",
+    span: "col-span-2 row-span-2",
+    position: "object-[center_10%]",
+    featured: true,
+  },
+  { src: "/assets/real-hanuman-mandir.jpg", span: "", position: "object-top" },
+  { src: "/assets/real-yatra-procession.jpg", span: "", position: "object-center" },
+  { src: "/assets/real-durga-devi.jpg", span: "", position: "object-[center_15%]" },
+  { src: "/assets/real-guruji-studio.jpg", span: "", position: "object-top" },
+  { src: "/assets/real-jeep-yatra.jpg", span: "", position: "object-center" },
+  { src: "/assets/ashram-night.jpg", span: "", position: "object-bottom" },
+  { src: "/assets/real-guruji-police.jpg", span: "", position: "object-center" },
+  { src: "/assets/real-guruji-felicitation.jpg", span: "", position: "object-center" },
 ];
 
 export default function Gallery() {
@@ -85,11 +90,11 @@ export default function Gallery() {
           </a>
         </div>
 
-        <div ref={gridRef} className="mt-10 grid grid-flow-row-dense grid-cols-2 auto-rows-65 gap-4 sm:grid-cols-3 sm:auto-rows-80 lg:grid-cols-4 lg:auto-rows-90">
+        <div ref={gridRef} className="mt-10 grid grid-flow-dense grid-cols-3 gap-1.5 sm:grid-cols-4 sm:gap-2">
           {PHOTOS.map((photo, i) => (
             <div
               key={i}
-              className={`group overflow-hidden rounded-xl border border-gold-200 shadow-sm transition-shadow duration-300 hover:shadow-xl ${photo.span}`}
+              className={`group aspect-square overflow-hidden rounded-md shadow-sm transition-all duration-300 hover:z-10 hover:shadow-xl ${photo.span}`}
             >
               <img
                 src={photo.src}
