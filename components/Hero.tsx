@@ -143,7 +143,7 @@ export default function Hero() {
       className="relative h-screen w-full overflow-hidden bg-saffron-900"
     >
       <img
-        src="/assets/bg-temple-clouds.png"
+        src="/assets/bg-temple-clouds.webp"
         alt=""
         className="absolute inset-0 h-full w-full object-cover"
         aria-hidden="true"
@@ -162,7 +162,7 @@ export default function Hero() {
       {/* Bust portrait, anchored from the top so the blessing hand lands mid-screen, above Guruji */}
       <img
         ref={hanumanRef}
-        src="/assets/hanuman-cutout.png"
+        src="/assets/hanuman-cutout.webp"
         alt="Hanuman ji"
         className="absolute left-1/2 top-[16%] h-[70%] -translate-x-1/2 object-contain"
       />
@@ -180,7 +180,7 @@ export default function Hero() {
       {/* Anchored from the bottom so it overlaps Hanuman's lower/hand area, reading as "standing before him" */}
       <img
         ref={gurujiRef}
-        src="/assets/guruji-cutout.png"
+        src="/assets/guruji-cutout.webp"
         alt="Guruji"
         className="absolute left-1/2 bottom-0 h-[46%] -translate-x-1/2 object-contain"
       />
@@ -188,7 +188,7 @@ export default function Hero() {
       {/* Blessing beam: grows down from Hanuman's hand toward Guruji's head via scaleY */}
       <img
         ref={rayBeamRef}
-        src="/assets/beam.png"
+        src="/assets/beam.webp"
         alt=""
         className="absolute left-[calc(50%-9.33vh)] top-[46%] h-[13%] w-auto -translate-x-1/2 mix-blend-screen"
         aria-hidden="true"

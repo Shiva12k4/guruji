@@ -82,7 +82,7 @@ export default function PetalsBackground({ className = "" }: { className?: strin
         <img
           key={i}
           data-petal
-          src="/assets/petals-sheet.png"
+          src="/assets/petals-sheet.webp"
           alt=""
           className={cfg.mobileHidden ? "hidden sm:block" : ""}
           style={{

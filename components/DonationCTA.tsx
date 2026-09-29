@@ -63,7 +63,7 @@ export default function DonationCTA() {
       className="relative w-full overflow-hidden py-12 md:py-16"
     >
       <img
-        src="/assets/bg-temple-clouds.png"
+        src="/assets/bg-temple-clouds.webp"
         alt=""
         aria-hidden="true"
         className="absolute inset-0 h-full w-full object-cover"
