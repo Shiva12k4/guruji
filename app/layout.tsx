@@ -23,7 +23,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${cormorant.variable} ${poppins.variable} h-full antialiased`}
+      className={`${cormorant.variable} ${poppins.variable} h-full overflow-x-hidden antialiased`}
     >
       <body className="min-h-full flex flex-col overflow-x-hidden">{children}</body>
     </html>
