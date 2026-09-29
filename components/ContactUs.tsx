@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { MapPin, Phone, Mail, Check } from "lucide-react";
+import { MapPin, Phone, Check } from "lucide-react";
 import Container from "./Container";
 
 export default function ContactUs() {
@@ -50,22 +50,16 @@ export default function ContactUs() {
                   <MapPin size={16} />
                 </span>
                 <span className="pt-1.5">
-                  Guruji Ashram, Mandir Marg,
+                  Shri Ram Maruti Dham, Upasana Nagar,
                   <br />
-                  Vrindavan, Uttar Pradesh
+                  G.T. Road (Bypass), Varanasi, U.P. - 221106
                 </span>
               </li>
               <li className="flex items-center gap-3">
                 <span className="flex h-9 w-9 flex-none items-center justify-center rounded-full bg-white/15">
                   <Phone size={16} />
                 </span>
-                <span>+91 00000 00000</span>
-              </li>
-              <li className="flex items-center gap-3">
-                <span className="flex h-9 w-9 flex-none items-center justify-center rounded-full bg-white/15">
-                  <Mail size={16} />
-                </span>
-                <span>info@example.com</span>
+                <span>+91 94158 18661</span>
               </li>
             </ul>
           </div>

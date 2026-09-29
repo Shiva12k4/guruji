@@ -54,16 +54,34 @@ export default function MahaYagyaHero() {
       id="maha-yagya-hero"
       className="relative w-full overflow-hidden bg-saffron-950"
     >
-      <img
-        src="/assets/yagya-hero-banner-mobile.png"
-        alt="Guruji ka Sankalp - Shri Maruti Mahayagya"
-        className="w-full h-auto object-contain md:hidden"
-      />
-      <img
-        src="/assets/yagya-hero-banner.png"
-        alt="Guruji ka Sankalp - Shri Maruti Mahayagya"
-        className="hidden w-full h-auto object-contain md:block"
-      />
+      <div className="relative flex min-h-[60vh] w-full items-end overflow-hidden md:min-h-[75vh]">
+        <img
+          src="/assets/real-yagya-havan.jpg"
+          alt="Guruji conducting Shri Maruti Mahayagya"
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+        <div
+          aria-hidden="true"
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(to bottom, rgba(26,10,4,0.55) 0%, rgba(26,10,4,0.35) 40%, rgba(26,10,4,0.85) 100%)",
+          }}
+        />
+
+        <Container className="relative z-10 w-full pb-10 pt-28 text-center md:pb-14">
+          <span className="font-body text-xs font-semibold uppercase tracking-[0.25em] text-gold-200/90 drop-shadow-[0_1px_6px_rgba(0,0,0,0.7)]">
+            Guruji ka Sankalp
+          </span>
+          <h1 className="mt-3 font-heading text-4xl font-semibold text-gold-100 drop-shadow-[0_2px_14px_rgba(0,0,0,0.7)] md:text-6xl">
+            Shri Maruti Mahayagya
+          </h1>
+          <p className="mx-auto mt-4 max-w-xl font-body text-base text-saffron-100/90 drop-shadow-[0_1px_6px_rgba(0,0,0,0.7)] md:text-lg">
+            2005 se 2026 tak, Guruji dwara desh ke alag-alag rajyon mein
+            sankalpit 151 Maha Yagya ki divya yatra.
+          </p>
+        </Container>
+      </div>
 
       <div
         className="w-full py-10"

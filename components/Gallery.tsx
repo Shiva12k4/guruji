@@ -8,11 +8,11 @@ import Container from "./Container";
 gsap.registerPlugin(ScrollTrigger);
 
 const PHOTOS = [
-  { src: "/assets/gallery1.jpeg", span: "row-span-2", position: "object-top" },
-  { src: "/assets/gallery2.jpeg", span: "row-span-1", position: "object-[center_28%]" },
-  { src: "/assets/gallery3.jpeg", span: "row-span-1", position: "object-top" },
-  { src: "/assets/gallery4.jpeg", span: "row-span-1", position: "object-[center_32%]" },
-  { src: "/assets/gallery5.png", span: "row-span-1", position: "object-top" },
+  { src: "/assets/real-guruji-flowers.jpg", span: "row-span-2", position: "object-[center_10%]" },
+  { src: "/assets/real-hanuman-mandir.jpg", span: "row-span-1", position: "object-top" },
+  { src: "/assets/real-yatra-procession.jpg", span: "row-span-1", position: "object-center" },
+  { src: "/assets/real-durga-devi.jpg", span: "row-span-1", position: "object-[center_15%]" },
+  { src: "/assets/ashram-night.jpg", span: "row-span-1", position: "object-bottom" },
 ];
 
 export default function Gallery() {

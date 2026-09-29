@@ -192,9 +192,9 @@ export default function GuruParichay() {
                 style={{ borderRadius: BLOB }}
               >
                 <img
-                  src="/assets/guruji-cutout.png"
+                  src="/assets/guruji-portrait.jpg"
                   alt="Guruji"
-                  className="h-full w-full object-cover object-top"
+                  className="h-full w-full object-cover object-[center_15%]"
                 />
               </div>
             </div>
@@ -232,9 +232,9 @@ export default function GuruParichay() {
               style={{ borderRadius: BLOB }}
             >
               <img
-                src="/assets/guruji-cutout.png"
+                src="/assets/guruji-portrait.jpg"
                 alt="Guruji"
-                className="h-full w-full object-cover object-top"
+                className="h-full w-full object-cover object-[center_15%]"
               />
             </div>
           </div>
