@@ -11,8 +11,12 @@ const PHOTOS = [
   { src: "/assets/real-guruji-flowers.jpg", span: "row-span-2", position: "object-[center_10%]" },
   { src: "/assets/real-hanuman-mandir.jpg", span: "row-span-1", position: "object-top" },
   { src: "/assets/real-yatra-procession.jpg", span: "row-span-1", position: "object-center" },
-  { src: "/assets/real-durga-devi.jpg", span: "row-span-1", position: "object-[center_15%]" },
+  { src: "/assets/real-durga-devi.jpg", span: "row-span-2", position: "object-[center_15%]" },
+  { src: "/assets/real-guruji-studio.jpg", span: "row-span-2", position: "object-top" },
+  { src: "/assets/real-jeep-yatra.jpg", span: "row-span-1", position: "object-center" },
   { src: "/assets/ashram-night.jpg", span: "row-span-1", position: "object-bottom" },
+  { src: "/assets/real-guruji-police.jpg", span: "row-span-1", position: "object-center" },
+  { src: "/assets/real-guruji-felicitation.jpg", span: "col-span-2 row-span-1", position: "object-center" },
 ];
 
 export default function Gallery() {
@@ -81,7 +85,7 @@ export default function Gallery() {
           </a>
         </div>
 
-        <div ref={gridRef} className="mt-10 grid grid-cols-2 auto-rows-55 gap-4 sm:grid-cols-3 sm:auto-rows-75">
+        <div ref={gridRef} className="mt-10 grid grid-flow-row-dense grid-cols-2 auto-rows-65 gap-4 sm:grid-cols-3 sm:auto-rows-80 lg:grid-cols-4 lg:auto-rows-90">
           {PHOTOS.map((photo, i) => (
             <div
               key={i}
