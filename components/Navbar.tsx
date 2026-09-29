@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 import { Menu, X, Home, Info, Flame, Video, Heart, Phone } from "lucide-react";
 
 const LINKS = [
@@ -15,13 +15,16 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 40);
+    const handleScroll = () => {
+      if (open) return;
+      setScrolled(window.scrollY > 40);
+    };
     handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [open]);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (!open) return;
 
     const scrollY = window.scrollY;
@@ -40,6 +43,7 @@ export default function Navbar() {
   }, [open]);
 
   return (
+    <>
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
         scrolled
@@ -106,6 +110,7 @@ export default function Navbar() {
           <Menu size={26} />
         </button>
       </nav>
+    </header>
 
       <div
         aria-hidden={!open}
@@ -116,7 +121,7 @@ export default function Navbar() {
       />
 
       <div
-        className={`fixed inset-y-0 right-0 z-50 flex w-[82%] max-w-xs flex-col text-saffron-100 shadow-2xl transition-transform duration-300 ease-out md:hidden ${
+        className={`fixed inset-y-0 right-0 z-50 flex w-[82%] max-w-xs flex-col text-saffron-100 shadow-2xl transition-transform duration-300 ease-out will-change-transform md:hidden ${
           open ? "translate-x-0" : "translate-x-full"
         }`}
         style={{
@@ -178,6 +183,6 @@ export default function Navbar() {
           </a>
         </div>
       </div>
-    </header>
+    </>
   );
 }

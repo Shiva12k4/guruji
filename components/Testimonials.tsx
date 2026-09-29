@@ -1,9 +1,9 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { User, Star } from "lucide-react";
+import { User, Star, ChevronLeft, ChevronRight } from "lucide-react";
 import Container from "./Container";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -56,6 +56,9 @@ const TESTIMONIALS = [
   },
 ];
 
+const PAGE_SIZE = 2;
+const PAGE_COUNT = Math.ceil(TESTIMONIALS.length / PAGE_SIZE);
+
 function StarRow() {
   return (
     <div className="flex gap-0.5 text-gold-500">
@@ -66,10 +69,51 @@ function StarRow() {
   );
 }
 
+function TestimonialCard({ t, i }: { t: (typeof TESTIMONIALS)[number]; i: number }) {
+  return (
+    <div className="group relative flex flex-col overflow-hidden rounded-2xl border border-gold-200 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-saffron-300 hover:shadow-xl">
+      <span
+        aria-hidden="true"
+        className="pointer-events-none absolute -right-3 -top-6 select-none font-heading text-8xl leading-none text-saffron-50"
+      >
+        &#10098;
+      </span>
+
+      <div className="relative flex items-center gap-3">
+        <span
+          className={`flex h-12 w-12 flex-none items-center justify-center rounded-full bg-linear-to-br shadow-md ${AVATAR_GRADIENTS[i % AVATAR_GRADIENTS.length]}`}
+        >
+          <User size={20} color="white" />
+        </span>
+        <div>
+          <p className="font-heading text-base font-semibold text-saffron-900">
+            {t.name}
+          </p>
+          <p className="font-body text-xs text-saffron-600">{t.city}</p>
+        </div>
+      </div>
+
+      <div className="relative mt-3">
+        <StarRow />
+      </div>
+
+      <p className="relative mt-4 flex-1 font-body text-sm leading-relaxed text-saffron-700/90">
+        &#8220;{t.quote}&#8221;
+      </p>
+    </div>
+  );
+}
+
 export default function Testimonials() {
   const sectionRef = useRef<HTMLElement>(null);
   const headingRef = useRef<HTMLDivElement>(null);
   const gridRef = useRef<HTMLDivElement>(null);
+  const mobileRef = useRef<HTMLDivElement>(null);
+  const [page, setPage] = useState(0);
+
+  const goTo = (index: number) => {
+    setPage(((index % PAGE_COUNT) + PAGE_COUNT) % PAGE_COUNT);
+  };
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -107,6 +151,21 @@ export default function Testimonials() {
           },
         });
       }
+
+      if (mobileRef.current) {
+        gsap.set(mobileRef.current, { y: 40, opacity: 0 });
+        gsap.to(mobileRef.current, {
+          y: 0,
+          opacity: 1,
+          duration: 0.7,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: mobileRef.current,
+            start: "top 85%",
+            once: true,
+          },
+        });
+      }
     }, section);
 
     return () => ctx.revert();
@@ -134,45 +193,71 @@ export default function Testimonials() {
 
         <div
           ref={gridRef}
-          className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"
+          className="mt-10 hidden gap-6 sm:grid sm:grid-cols-2 lg:grid-cols-3"
         >
           {TESTIMONIALS.map((t, i) => (
-            <div
-              key={t.name}
-              className="group relative flex flex-col overflow-hidden rounded-2xl border border-gold-200 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-saffron-300 hover:shadow-xl"
-            >
-              <span
-                aria-hidden="true"
-                className="pointer-events-none absolute -right-3 -top-6 select-none font-heading text-8xl leading-none text-saffron-50"
-              >
-                &#10098;
-              </span>
-
-              <div className="relative flex items-center gap-3">
-                <span
-                  className={`flex h-12 w-12 flex-none items-center justify-center rounded-full bg-linear-to-br shadow-md ${AVATAR_GRADIENTS[i % AVATAR_GRADIENTS.length]}`}
-                >
-                  <User size={20} color="white" />
-                </span>
-                <div>
-                  <p className="font-heading text-base font-semibold text-saffron-900">
-                    {t.name}
-                  </p>
-                  <p className="font-body text-xs text-saffron-600">
-                    {t.city}
-                  </p>
-                </div>
-              </div>
-
-              <div className="relative mt-3">
-                <StarRow />
-              </div>
-
-              <p className="relative mt-4 flex-1 font-body text-sm leading-relaxed text-saffron-700/90">
-                &#8220;{t.quote}&#8221;
-              </p>
-            </div>
+            <TestimonialCard key={t.name} t={t} i={i} />
           ))}
+        </div>
+
+        <div ref={mobileRef} className="mt-10 sm:hidden">
+          <div className="relative">
+            <div className="overflow-hidden">
+              <div
+                className="flex transition-transform duration-500 ease-out"
+                style={{ transform: `translateX(-${page * 100}%)` }}
+              >
+                {Array.from({ length: PAGE_COUNT }).map((_, pageIndex) => (
+                  <div
+                    key={pageIndex}
+                    className="flex w-full flex-none flex-col gap-4"
+                  >
+                    {TESTIMONIALS.slice(
+                      pageIndex * PAGE_SIZE,
+                      pageIndex * PAGE_SIZE + PAGE_SIZE
+                    ).map((t, i) => (
+                      <TestimonialCard
+                        key={t.name}
+                        t={t}
+                        i={pageIndex * PAGE_SIZE + i}
+                      />
+                    ))}
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <button
+              type="button"
+              onClick={() => goTo(page - 1)}
+              aria-label="Previous testimonials"
+              className="absolute left-1 top-1/2 z-10 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full border border-gold-200 bg-white text-saffron-700 shadow-md"
+            >
+              <ChevronLeft size={18} />
+            </button>
+            <button
+              type="button"
+              onClick={() => goTo(page + 1)}
+              aria-label="Next testimonials"
+              className="absolute right-1 top-1/2 z-10 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full border border-gold-200 bg-white text-saffron-700 shadow-md"
+            >
+              <ChevronRight size={18} />
+            </button>
+          </div>
+
+          <div className="mt-5 flex items-center justify-center gap-2">
+            {Array.from({ length: PAGE_COUNT }).map((_, i) => (
+              <button
+                key={i}
+                type="button"
+                onClick={() => goTo(i)}
+                aria-label={`Go to testimonials page ${i + 1}`}
+                className={`h-2.5 rounded-full transition-all ${
+                  i === page ? "w-6 bg-saffron-600" : "w-2.5 bg-gold-200"
+                }`}
+              />
+            ))}
+          </div>
         </div>
       </Container>
     </section>
