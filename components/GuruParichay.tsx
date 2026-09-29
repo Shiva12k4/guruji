@@ -180,13 +180,7 @@ export default function GuruParichay() {
               Guru Parichay
             </h3>
 
-            <div className="relative float-left mr-3 mb-1 w-24 lg:hidden">
-              <img
-                src="/assets/baba-2bg.png"
-                alt=""
-                aria-hidden="true"
-                className="pointer-events-none absolute -inset-3 h-[calc(100%+1.5rem)] w-[calc(100%+1.5rem)] max-w-none object-contain"
-              />
+            <div className="relative float-left mr-3 mb-1 w-36 lg:hidden">
               <div className="relative aspect-square w-full overflow-hidden rounded-full border-4 border-white shadow-lg">
                 <img
                   src="/assets/guruji-portrait.jpg"
@@ -217,13 +211,7 @@ export default function GuruParichay() {
             </button>
           </div>
 
-          <div ref={gurujiImgRef} className="relative mx-auto hidden w-full lg:order-3 lg:block lg:max-w-xs lg:col-span-4">
-            <img
-              src="/assets/baba-2bg.png"
-              alt=""
-              aria-hidden="true"
-              className="pointer-events-none absolute -inset-10 h-[calc(100%+5rem)] w-[calc(100%+5rem)] max-w-none object-contain"
-            />
+          <div ref={gurujiImgRef} className="relative mx-auto hidden w-full lg:order-3 lg:block lg:col-span-4">
             <div className="relative aspect-square w-full overflow-hidden rounded-full border-4 border-white shadow-lg">
               <img
                 src="/assets/guruji-portrait.jpg"
